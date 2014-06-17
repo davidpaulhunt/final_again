@@ -1,0 +1,5 @@
+- case notification.notifieable_type
+  - when "FavoriteSchool"
+    %li= link_to "Your school was favorited by #{notification.notifieable.player.first_name}.", notification.notifieable.user
+  - when "PositionNeed"
+    %li= link_to "#{notification.notifieable.coach.school.name} has added #{notification.notifieable.position.abbreviation.upcase} to their needs.", notification.notifieable.coach.school

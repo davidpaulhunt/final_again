@@ -27,7 +27,7 @@
             .row
               .col-xs-12.col-sm-4
                 %h2
-                  %strong 0
+                  %strong= @user.notifications.count
                 %p
                   %small Notifications
               .col-xs-12.col-sm-4
@@ -48,9 +48,9 @@
                     New Need
               / /col
               .col-xs-18.col-sm-6
-                %a{href: edit_coach_path(@user)}
-                  %button.btn.btn-default.btn-block{type: "button"}
-                    Edit Profile
+                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#notifications-modal", id: "notifications"}
+                  %button.btn.btn-default.btn-block
+                    Notifications
     .col-md-2
 
 %div.modal.fade#new-position_need-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-position_need-label", "aria-hidden" => "true"}
@@ -64,3 +64,20 @@
       %div.modal-body
         = form_for PositionNeed.new do |f|
           = render "position_needs/form", f:f
+
+%div.modal.fade#notifications-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "notifications-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#notifications-label
+          Your Notifications
+      %div.modal-body
+        - if @user.notifications.empty?
+          %strong You don't have any notifications!
+        %ul
+          = render @user.notifications
+      %div.modal-footer
+        %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+          Close

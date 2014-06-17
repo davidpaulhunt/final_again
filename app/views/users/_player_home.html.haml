@@ -23,7 +23,7 @@
             .row
               .col-xs-12.col-sm-4
                 %h2
-                  %strong 0
+                  %strong= @user.notifications.active.count
                 %p
                   %small Notifications
               .col-xs-12.col-sm-4
@@ -39,9 +39,9 @@
             .row
               / /col
               .col-xs-18.col-sm-6
-                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-position_need-modal", id: "new-position_need"}
+                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#notifications-modal", id: "notifications"}
                   %button.btn.btn-default.btn-block
-                    New Need
+                    Notifications
               / /col
               .col-xs-18.col-sm-6
                 %a{href: edit_player_path(@user)}
@@ -68,3 +68,20 @@
                     %td= favorite.school.name
                     %td= favorite.school.favorite_schools.count
     .col-md-2
+
+%div.modal.fade#notifications-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "notifications-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#notifications-label
+          Your Notifications
+      %div.modal-body
+        - if @user.notifications.empty?
+          %strong You don't have any notifications!
+        %ul
+          = render @user.notifications.active
+      %div.modal-footer
+        %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+          Close

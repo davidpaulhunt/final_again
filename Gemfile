@@ -10,6 +10,7 @@ gem 'oj'
 
 # for roles e.g. notifications
 gem 'workflow'
+gem 'sucker_punch', '~> 1.0'
 
 # assets
 gem 'bootstrap-sass'

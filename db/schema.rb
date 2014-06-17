@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617202716) do
+ActiveRecord::Schema.define(version: 20140617210943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140617202716) do
   create_table "favorite_schools", force: true do |t|
     t.integer "player_id"
     t.integer "school_id"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "notifieable_id"
+    t.string   "notifieable_type"
+    t.string   "workflow_state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "players_positions", force: true do |t|

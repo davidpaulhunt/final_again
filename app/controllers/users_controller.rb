@@ -38,6 +38,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @user.type == "Player"
+      Notification.mark_reviewed("player", params[:id], current_user.id)
+    end
   end
 
   private

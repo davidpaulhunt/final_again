@@ -19,6 +19,7 @@ class SchoolsController < ApplicationController
   end
 
   def show
+    Notification.mark_reviewed("school", params[:id], current_user.id)
   end
 
   private
