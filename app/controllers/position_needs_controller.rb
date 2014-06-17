@@ -2,9 +2,12 @@ class PositionNeedsController < ApplicationController
 
   def create
     needs = params[:position_needs]
-    coach = params[:position_need][:coach_id]
+    coach_id = params[:position_need][:coach_id]
+    coach = Coach.find(coach_id)
     needs.each do |need|
-      PositionNeed.create(position_id: need, coach_id: coach)
+      if !coach.position_needs.where(position_id: need.to_i).present?
+        PositionNeed.create(position_id: need, coach_id: coach_id)
+      end
     end
     redirect_to :back
   end

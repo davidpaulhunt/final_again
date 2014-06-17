@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :notifications
+  end
   resources :players, controller: "users", type: "Player", only: [:index, :show, :edit, :update]
   resources :coaches, controller: "users", type: "Coach", only: [:edit, :update, :destroy]
 

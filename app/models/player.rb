@@ -4,7 +4,7 @@ class Player < User
 
   has_many :stats
 
-  has_many :favorite_schools
+  has_many :favorite_schools, -> { limit(5) }
 
   has_one :video
 

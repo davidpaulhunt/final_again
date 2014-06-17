@@ -17,7 +17,12 @@
           %a.navbar-brand{href: "/"}
             %span.icon-VeloMark{"data-icon" => "logo.ico"}
             %span.logo recruit.me
-        .navbar-collapse.collapse
+        .collapse.navbar-collapse#navbar-collapse-1
+          - if current_user
+            %a.active{href: user_notifications_path(current_user.id)}
+              Notifications
+              %span.badge
+                = current_user.notifications.with_new_state.count
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               %li
