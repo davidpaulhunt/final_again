@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   get "logout" => "sessions#destroy"
 
   resources :users, only: [:new, :create]
-  resources :players, controller: "users", type: "Player", only: [:index, :show]
+  resources :players, controller: "users", type: "Player", only: [:index, :show, :edit, :update]
   resources :coaches, controller: "users", type: "Coach", only: [:edit, :update, :destroy]
 
   resources :position_needs, only: [:create, :destroy]
 
-  resources :schools, only: [:index, :show]
+  resources :schools, only: [:index, :show, :new, :create]
+
+  resources :favorite_schools, only: [:create, :destroy]
   
   resources :sessions, only: [:new, :create, :destroy]
 

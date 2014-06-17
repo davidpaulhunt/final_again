@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613140729) do
+ActiveRecord::Schema.define(version: 20140617202716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "coaching_positions", force: true do |t|
     t.integer "coach_id"
+    t.integer "school_id"
+  end
+
+  create_table "favorite_schools", force: true do |t|
+    t.integer "player_id"
     t.integer "school_id"
   end
 
@@ -48,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140613140729) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo"
   end
 
   create_table "sports", force: true do |t|
@@ -88,6 +94,12 @@ ActiveRecord::Schema.define(version: 20140613140729) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+  end
+
+  create_table "videos", force: true do |t|
+    t.integer "player_id"
+    t.string  "title"
+    t.string  "panda_video_id"
   end
 
 end

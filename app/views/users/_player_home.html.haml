@@ -1,32 +1,70 @@
-.row
-  .col-md-2
-  .col-md-8
-    %div.page-header
-      %h1= "Welcome back, #{current_user.first_name}!"
-    - if current_user.avatar.present?
-      = image_tag current_user.avatar.url(:web, :preview), style: "border-radius:50px;height:75px;width:75px;"
-    - else
-      = image_tag "player1.jpeg", style: "border-radius:50px;height:75px;width:75px;"
-    %panel
-      - current_user.stats.each do |stat|
-        %p= stat.id
-  .col-md-2
+.container
+  %br
+  %br
+  .row
+    .col-md-2
+    .col-md-8
+      %legend= @user.type
+      .col-md-6
+        .panel.panel-default
+          .panel-body
+            .row
+              .col-xs-12.col-sm-8
+                %h2= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}"
+                %p
+                  %strong Positions:
+                  - @user.positions.each do |pos|
+                    %span.label.label-info.tags= pos.abbreviation.upcase
 
-%button.btn.btn-success#new-sport{"data-toggle" => "modal", "data-target" => "#new-sport-modal"}
-  Add a Sport
+              / /col
+              .col-xs-12.col-sm-4.text-center
+                %img.center-block.img-circle.img-responsive{alt: "", src: @user.avatar.url}
+              / /col
+            .row
+              .col-xs-12.col-sm-4
+                %h2
+                  %strong 0
+                %p
+                  %small Notifications
+              .col-xs-12.col-sm-4
+                %h2
+                  %strong= @user.favorite_schools.count
+                %p
+                  %small Favorites
+              .col-xs-12.col-sm-4
+                %h2
+                  %strong 0
+                %p
+                  %small New Messages
+            .row
+              / /col
+              .col-xs-18.col-sm-6
+                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-position_need-modal", id: "new-position_need"}
+                  %button.btn.btn-default.btn-block
+                    New Need
+              / /col
+              .col-xs-18.col-sm-6
+                %a{href: edit_player_path(@user)}
+                  %button.btn.btn-default.btn-block{type: "button"}
+                    Edit Profile
+        .panel.panel-default
+          .panel-body
+            %legend Show Off Your Game
+            
 
-%div.modal.fade#new-sport-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-sport-label", "aria-hidden" => "true"}
-  %div.modal-dialog
-    %div.modal-content
-      %div.modal-header
-        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
-          &times;
-        %h4.modal-title#new-sport-label
-          Add a Sport
-      %div.modal-body
-        = render "sports/form"
-      %div.modal-footer
-        %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
-          Close</button>
-        %button.btn.btn-primary{ type: "button"}
-          Save changes
+      .col-md-1
+      .col-md-5
+        .panel.panel-default#fav-schools
+          .panel-body
+            %legend
+              %small Favorite Schools
+            %table.table.table-striped
+              %thead
+                %th School
+                %th Interested Players
+              %tbody
+                - @user.favorite_schools.each do |favorite|
+                  %tr
+                    %td= favorite.school.name
+                    %td= favorite.school.favorite_schools.count
+    .col-md-2

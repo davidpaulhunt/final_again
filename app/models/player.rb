@@ -4,6 +4,10 @@ class Player < User
 
   has_many :stats
 
+  has_many :favorite_schools
+
+  has_one :video
+
   def self.quarterbacks
     Position.where(name: "quarterback").first.players
   end
