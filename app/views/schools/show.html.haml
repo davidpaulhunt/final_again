@@ -1,0 +1,63 @@
+.container
+  %br
+  %br
+  .row
+    .col-md-2
+    .col-md-8
+      %legend= @school.name.titleize
+      .col-md-6
+        .panel.panel-default
+          .panel-body
+            .row
+              .col-xs-12.col-sm-8
+                %p
+                  %strong Needs:
+                  - @school.position_needs.each do |need|
+                    %a.pos-pop{rel: "popover", "data-html"=>"true","data-container"=>"body", "data-content"=>"#{link_to 'Find Players', players_path, 'class'=>'btn btn-default btn-xs'} #{link_to "Delete Need", need, 'method'=>'delete', 'class'=>'btn btn-default btn-xs'}", "data-placement"=>"left","data-toggle"=>"popover", id: "pos-pop-#{need.id}"}
+                      %span.label.label-info.tags= need.position.abbreviation.upcase
+
+              / /col
+              .col-xs-12.col-sm-4.text-center
+                - if @school.photo.present?
+                  %img.center-block.img-circle.img-responsive{alt: "", src: @school.photo.url}
+              / /col
+            .row
+              .col-xs-12.col-sm-4
+                %h2
+                  %strong 0
+                %p
+                  %small Notifications
+              .col-xs-12.col-sm-4
+                %h2
+                  %strong= @school.position_needs.count
+                %p
+                  %small Needs
+              .col-xs-12.col-sm-4
+                %h2
+                  %strong= @school.favorite_schools.count
+                %p
+                  %small Favorited
+            .row
+              / /col
+              .col-xs-18.col-sm-6
+                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-favorite_school-modal", id: "new-favorite_school"}
+                  %button.btn.btn-default.btn-block
+                    Favorite
+              / /col
+              .col-xs-18.col-sm-6
+                %a{href: "#"}
+                  %button.btn.btn-default.btn-block{type: "button"}
+                    Edit Profile
+    .col-md-2
+
+%div.modal.fade#new-favorite_school-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-favorite_school-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#new-favorite_school-label
+          Add Favorite?
+      %div.modal-body
+        = form_for FavoriteSchool.new do |f|
+          = render "favorite_schools/form", f:f

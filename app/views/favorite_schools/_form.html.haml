@@ -1,0 +1,8 @@
+.form-group#favorite_schools-form
+  Favorite this school?
+= f.hidden_field :school_id, value: @school.id
+= f.hidden_field :player_id, value: current_user.id
+%div.modal-footer
+  %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+    Close
+  = f.submit "Submit", class: "btn btn-default"

@@ -251,3 +251,2606 @@ Migrating to CreateHeadCoach (20140613140729)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613140729"]]
   [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixingUpdates (20140617202716)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (25.7ms)[0m  [1mCREATE TABLE "videos" ("id" serial primary key, "player_id" integer, "title" character varying(255), "panda_video_id" character varying(255)) [0m
+  [1m[35m (5.8ms)[0m  ALTER TABLE "schools" ADD COLUMN "photo" character varying(255)
+  [1m[36m (8.2ms)[0m  [1mCREATE TABLE "favorite_schools" ("id" serial primary key, "player_id" integer, "school_id" integer) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140617202716"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 16:47:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :ensure_logged_in rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 16:47:09 -0400
+Processing by SessionsController#new as HTML
+  [1m[35mPosition Load (0.9ms)[0m  SELECT "positions".* FROM "positions"
+  [1m[36mSchool Load (1.1ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_form.html.haml (74.5ms)
+  Rendered sessions/new.html.haml within layouts/application (121.1ms)
+Completed 200 OK in 439ms (Views: 433.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:47:10 -0400
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  [1m[35mPosition Load (0.6ms)[0m  SELECT "positions".* FROM "positions"
+  [1m[36mSchool Load (0.8ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_form.html.haml (71.3ms)
+  Rendered sessions/new.html.haml within layouts/application (130.5ms)
+Completed 200 OK in 437ms (Views: 417.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/background.png" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started GET "/assets/arrow.png" for 127.0.0.1 at 2014-06-17 16:50:45 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "email"=>"coach@email.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (3.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'coach@email.com' LIMIT 1
+  [1m[36mPosition Load (0.3ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT "schools".* FROM "schools"
+  Rendered users/_form.html.haml (10.2ms)
+  Rendered sessions/new.html.haml within layouts/application (14.1ms)
+Completed 200 OK in 49ms (Views: 33.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:54 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:50:55 -0400
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mSport Load (1.2ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSport Exists (2.5ms)[0m  [1mSELECT  1 AS one FROM "sports"  WHERE "sports"."name" = 'football' LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "sports" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-06-17 20:51:35.021098"], ["name", "football"], ["updated_at", "2014-06-17 20:51:35.021098"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["abbreviation", "qb"], ["created_at", "2014-06-17 20:51:35.059074"], ["name", "quarterback"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.059074"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["abbreviation", "rb"], ["created_at", "2014-06-17 20:51:35.065823"], ["name", "running back"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.065823"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["abbreviation", "wr"], ["created_at", "2014-06-17 20:51:35.071378"], ["name", "wide receiver"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.071378"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["abbreviation", "te"], ["created_at", "2014-06-17 20:51:35.077214"], ["name", "tight end"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.077214"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["abbreviation", "ot"], ["created_at", "2014-06-17 20:51:35.083223"], ["name", "offensive tackle"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.083223"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["abbreviation", "og"], ["created_at", "2014-06-17 20:51:35.088706"], ["name", "offensive guard"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.088706"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["abbreviation", "c"], ["created_at", "2014-06-17 20:51:35.094210"], ["name", "center"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.094210"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "positions" ("abbreviation", "created_at", "name", "sport_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["abbreviation", "fb"], ["created_at", "2014-06-17 20:51:35.100238"], ["name", "fullback"], ["sport_id", 1], ["updated_at", "2014-06-17 20:51:35.100238"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[36mSchool Load (0.7ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  [1m[35mSport Load (1.1ms)[0m  SELECT "sports".* FROM "sports"
+  [1m[36mPosition Load (0.6ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-06-17 20:53:10.906258"], ["name", "Sam Houston State University"], ["updated_at", "2014-06-17 20:53:10.906258"]]
+  [1m[35m (5.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-06-17 20:53:21.997961"], ["name", "University of New Orleans"], ["updated_at", "2014-06-17 20:53:21.997961"]]
+  [1m[36m (8.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-06-17 20:53:33.435839"], ["name", "Tarleton State University"], ["updated_at", "2014-06-17 20:53:33.435839"]]
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-06-17 20:53:43.945478"], ["name", "Valdosta State University"], ["updated_at", "2014-06-17 20:53:43.945478"]]
+  [1m[36m (8.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-06-17 20:53:55.152006"], ["name", "South Dakota State University"], ["updated_at", "2014-06-17 20:53:55.152006"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-06-17 20:54:09.710555"], ["name", "Witchita State University"], ["updated_at", "2014-06-17 20:54:09.710555"]]
+  [1m[36m (7.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-06-17 20:54:31.868850"], ["name", "Eastern Washington State University"], ["updated_at", "2014-06-17 20:54:31.868850"]]
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-06-17 20:54:51.550006"], ["name", "Montana State University"], ["updated_at", "2014-06-17 20:54:51.550006"]]
+  [1m[36m (8.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-06-17 20:55:05.631127"], ["name", "Blinn Community College"], ["updated_at", "2014-06-17 20:55:05.631127"]]
+  [1m[35m (8.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schools" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-06-17 20:55:41.495137"], ["name", "University of Texas - San Antonio"], ["updated_at", "2014-06-17 20:55:41.495137"]]
+  [1m[36m (8.7ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 16:56:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  [1m[35mPosition Load (0.6ms)[0m  SELECT "positions".* FROM "positions"
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_form.html.haml (78.7ms)
+  Rendered sessions/new.html.haml within layouts/application (120.3ms)
+Completed 200 OK in 378ms (Views: 355.3ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:56:44 -0400
+
+
+Started POST "/users" for 127.0.0.1 at 2014-06-17 16:57:37 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "user"=>{"type"=>"Player", "first_name"=>"David", "last_name"=>"Hunt", "email"=>"player@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00000105f80128 @tempfile=#<Tempfile:/var/folders/44/1l58jbw14sj_2k73ncp0qlpc0000gn/T/RackMultipart20140617-27715-cp7whq>, @original_filename="player9.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"player9.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "positions"=>["1", "4"], "school"=>"1", "terms"=>"1", "commit"=>"Save"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'player@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("avatar", "created_at", "email", "first_name", "last_name", "password_digest", "type", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["avatar", "player9.jpeg"], ["created_at", "2014-06-17 20:57:39.109680"], ["email", "player@email.com"], ["first_name", "David"], ["last_name", "Hunt"], ["password_digest", "$2a$10$3HfHQ0JwfRnTg91VEZEcI.0S68pN6hzvtpFzdxqM2WTkX9zhYCSI2"], ["type", "Player"], ["updated_at", "2014-06-17 20:57:39.109680"]]
+  [1m[36m (8.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mPosition Load (0.4ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPosition Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1 AND "positions"."id" = 1 LIMIT 1[0m  [["player_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "players_positions" ("created_at", "player_id", "position_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-06-17 20:57:40.226848"], ["player_id", 1], ["position_id", 1], ["updated_at", "2014-06-17 20:57:40.226848"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mPosition Load (0.3ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mPosition Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1 AND "positions"."id" = 4 LIMIT 1[0m  [["player_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "players_positions" ("created_at", "player_id", "position_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-06-17 20:57:40.249064"], ["player_id", 1], ["position_id", 4], ["updated_at", "2014-06-17 20:57:40.249064"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2395ms (ActiveRecord: 18.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+Processing by SessionsController#new as HTML
+  [1m[35mPosition Load (0.3ms)[0m  SELECT "positions".* FROM "positions"
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_form.html.haml (10.7ms)
+  Rendered sessions/new.html.haml within layouts/application (15.8ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:57:40 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "email"=>"player@email.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'player@email.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 96ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPosition Load (0.7ms)[0m  SELECT "positions".* FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1  [["player_id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35mFavoriteSchool Load (0.3ms)[0m  SELECT "favorite_schools".* FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1  [["player_id", 1]]
+  Rendered users/_player_home.html.haml (41.9ms)
+  Rendered home/index.html.haml within layouts/application (45.0ms)
+Completed 200 OK in 70ms (Views: 60.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:57:48 -0400
+
+
+Started GET "/schools" for 127.0.0.1 at 2014-06-17 16:58:05 -0400
+Processing by SchoolsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT "schools".* FROM "schools"
+  [1m[36mCoach Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35mPositionNeed Load (1.2ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 1]]
+  [1m[36mCoach Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 2]]
+  [1m[35mPositionNeed Load (0.7ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 2]]
+  [1m[36mCoach Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35mPositionNeed Load (0.6ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 3]]
+  [1m[36mCoach Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 4]]
+  [1m[35mPositionNeed Load (0.7ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 4]]
+  [1m[36mCoach Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 5]]
+  [1m[35mPositionNeed Load (0.9ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 5]]
+  [1m[36mCoach Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 6]]
+  [1m[35mPositionNeed Load (0.7ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 6]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 7]]
+  [1m[35mPositionNeed Load (0.2ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 7]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 8]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 8]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 9]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 9]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 10]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 10]]
+  Rendered schools/index.html.haml within layouts/application (147.7ms)
+Completed 200 OK in 171ms (Views: 150.4ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/assets/dataTables/sort_both.png" for 127.0.0.1 at 2014-06-17 16:58:05 -0400
+
+
+Started GET "/assets/dataTables/sort_asc.png" for 127.0.0.1 at 2014-06-17 16:58:06 -0400
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2014-06-17 16:58:15 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered schools/show.html.haml within layouts/application (17.3ms)
+Completed 500  in 28ms
+
+NoMethodError - undefined method `name' for nil:NilClass:
+   () Users/davidhunt/Desktop/projects/final_again/app/views/schools/show.html.haml:7:in `_app_views_schools_show_html_haml__2282076576604478637_2174514620'
+  actionview (4.1.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2014-06-17 16:58:15 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered schools/show.html.haml within layouts/application (15.7ms)
+Completed 500  in 23ms
+
+NoMethodError - undefined method `name' for nil:NilClass:
+   () Users/davidhunt/Desktop/projects/final_again/app/views/schools/show.html.haml:7:in `_app_views_schools_show_html_haml__2282076576604478637_2171966780'
+  actionview (4.1.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2160902160/variables" for 127.0.0.1 at 2014-06-17 16:58:15 -0400
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2014-06-17 16:58:55 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 1]]
+  Rendered schools/show.html.haml within layouts/application (22.2ms)
+Completed 500  in 78ms
+
+NoMethodError - undefined method `url' for nil:NilClass:
+   () Users/davidhunt/Desktop/projects/final_again/app/views/schools/show.html.haml:21:in `_app_views_schools_show_html_haml__2282076576604478637_2171966780'
+  actionview (4.1.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.0) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.0) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.3.0) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.0) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () Users/davidhunt/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2195613400/variables" for 127.0.0.1 at 2014-06-17 16:58:55 -0400
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 1]]
+  Rendered favorite_schools/_form.html.haml (5.8ms)
+  Rendered schools/show.html.haml within layouts/application (78.6ms)
+Completed 200 OK in 110ms (Views: 95.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 16:59:56 -0400
+
+
+Started POST "/favorite_schools" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+Processing by FavoriteSchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "favorite_school"=>{"school_id"=>"1", "player_id"=>"1"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "favorite_schools" ("player_id", "school_id") VALUES ($1, $2) RETURNING "id"[0m  [["player_id", 1], ["school_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/schools/1
+Completed 302 Found in 27ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/schools/1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPositionNeed Load (0.8ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 1]]
+  Rendered favorite_schools/_form.html.haml (0.7ms)
+  Rendered schools/show.html.haml within layouts/application (37.2ms)
+Completed 200 OK in 69ms (Views: 57.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:00 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:00:01 -0400
+
+
+Started GET "/schools" for 127.0.0.1 at 2014-06-17 17:00:02 -0400
+Processing by SchoolsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT "schools".* FROM "schools"
+  [1m[36mCoach Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 1]]
+  [1m[36mCoach Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 2]]
+  [1m[35mPositionNeed Load (0.7ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 2]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 3]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 4]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 4]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 5]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 5]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 6]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 6]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 7]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 7]]
+  [1m[36mCoach Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 8]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 8]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 9]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 9]]
+  [1m[36mCoach Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 10]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 10]]
+  Rendered schools/index.html.haml within layouts/application (133.1ms)
+Completed 200 OK in 159ms (Views: 144.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/schools/3" for 127.0.0.1 at 2014-06-17 17:00:05 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mPositionNeed Load (0.4ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 3]]
+  Rendered favorite_schools/_form.html.haml (1.9ms)
+  Rendered schools/show.html.haml within layouts/application (32.7ms)
+Completed 200 OK in 61ms (Views: 48.6ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/favorite_schools" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+Processing by FavoriteSchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "favorite_school"=>{"school_id"=>"3", "player_id"=>"1"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "favorite_schools" ("player_id", "school_id") VALUES ($1, $2) RETURNING "id"  [["player_id", 1], ["school_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/schools/3
+Completed 302 Found in 27ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/schools/3" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchool Load (0.2ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35m (1.7ms)[0m  SELECT COUNT(*) FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 3]]
+  Rendered favorite_schools/_form.html.haml (0.7ms)
+  Rendered schools/show.html.haml within layouts/application (19.4ms)
+Completed 200 OK in 46ms (Views: 36.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:08 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:00:09 -0400
+
+
+Started GET "/schools" for 127.0.0.1 at 2014-06-17 17:00:10 -0400
+Processing by SchoolsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 1]]
+  [1m[36mPositionNeed Load (0.6ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 2]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 2]]
+  [1m[35mCoach Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 3]]
+  [1m[36mPositionNeed Load (0.4ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 4]]
+  [1m[36mPositionNeed Load (0.4ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 4]]
+  [1m[35mCoach Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 5]]
+  [1m[36mPositionNeed Load (0.4ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 5]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 6]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 6]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 7]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 7]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 8]]
+  [1m[36mPositionNeed Load (0.4ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 8]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 9]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 9]]
+  [1m[35mCoach Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 10]]
+  [1m[36mPositionNeed Load (0.2ms)[0m  [1mSELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 10]]
+  Rendered schools/index.html.haml within layouts/application (122.5ms)
+Completed 200 OK in 151ms (Views: 135.1ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/schools/6" for 127.0.0.1 at 2014-06-17 17:00:12 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mPositionNeed Load (0.3ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 6]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 6]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 6]]
+  Rendered favorite_schools/_form.html.haml (0.5ms)
+  Rendered schools/show.html.haml within layouts/application (23.4ms)
+Completed 200 OK in 52ms (Views: 39.0ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/favorite_schools" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+Processing by FavoriteSchoolsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "favorite_school"=>{"school_id"=>"6", "player_id"=>"1"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "favorite_schools" ("player_id", "school_id") VALUES ($1, $2) RETURNING "id"[0m  [["player_id", 1], ["school_id", 6]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSchool Load (0.8ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 6]]
+Redirected to http://localhost:3000/schools/6
+Completed 302 Found in 22ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/schools/6" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1  [["school_id", 6]]
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM "position_needs" INNER JOIN "users" ON "position_needs"."coach_id" = "users"."id" INNER JOIN "coaching_positions" ON "users"."id" = "coaching_positions"."coach_id" WHERE "users"."type" IN ('Coach') AND "coaching_positions"."school_id" = $1[0m  [["school_id", 6]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 6]]
+  Rendered favorite_schools/_form.html.haml (0.6ms)
+  Rendered schools/show.html.haml within layouts/application (21.4ms)
+Completed 200 OK in 52ms (Views: 41.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:00:15 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:00:18 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPosition Load (0.7ms)[0m  SELECT "positions".* FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1  [["player_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35mFavoriteSchool Load (0.6ms)[0m  SELECT "favorite_schools".* FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1  [["player_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 1]]
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 3]]
+  [1m[36mSchool Load (0.5ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 6]]
+  Rendered users/_player_home.html.haml (97.1ms)
+  Rendered home/index.html.haml within layouts/application (101.5ms)
+Completed 200 OK in 124ms (Views: 110.8ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:00:31 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPosition Load (0.8ms)[0m  SELECT "positions".* FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1  [["player_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35mFavoriteSchool Load (0.3ms)[0m  SELECT "favorite_schools".* FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1  [["player_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 1]]
+  [1m[36mSchool Load (0.3ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 3]]
+  [1m[36mSchool Load (0.2ms)[0m  [1mSELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1  [["school_id", 6]]
+  Rendered users/_player_home.html.haml (39.2ms)
+  Rendered home/index.html.haml within layouts/application (41.3ms)
+Completed 200 OK in 66ms (Views: 59.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/players/1/edit" for 127.0.0.1 at 2014-06-17 17:00:39 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"type"=>"Player", "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPlayer Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."type" IN ('Player') AND "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/_form.html.haml (9.8ms)
+  Rendered users/edit.html.haml within layouts/application (17.1ms)
+Completed 200 OK in 56ms (Views: 38.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/players/1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "player"=>{"first_name"=>"David", "last_name"=>"Hunt", "email"=>"player@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save", "type"=>"Player", "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPlayer Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."type" IN ('Player') AND "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'player@email.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPosition Load (1.1ms)[0m  [1mSELECT "positions".* FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1  [["player_id", 1]]
+  [1m[36mFavoriteSchool Load (0.4ms)[0m  [1mSELECT "favorite_schools".* FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35mSchool Load (0.4ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35mSchool Load (0.2ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 6]]
+  Rendered users/_player_home.html.haml (48.7ms)
+  Rendered home/index.html.haml within layouts/application (49.9ms)
+Completed 200 OK in 72ms (Views: 64.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:00:43 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:01:02 -0400
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPosition Load (1.1ms)[0m  [1mSELECT "positions".* FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1  [["player_id", 1]]
+  [1m[36mFavoriteSchool Load (0.3ms)[0m  [1mSELECT "favorite_schools".* FROM "favorite_schools"  WHERE "favorite_schools"."player_id" = $1[0m  [["player_id", 1]]
+  [1m[35mSchool Load (0.2ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 1]]
+  [1m[35mSchool Load (0.2ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 3]]
+  [1m[35mSchool Load (0.3ms)[0m  SELECT  "schools".* FROM "schools"  WHERE "schools"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "favorite_schools"  WHERE "favorite_schools"."school_id" = $1[0m  [["school_id", 6]]
+  Rendered users/_player_home.html.haml (40.3ms)
+  Rendered home/index.html.haml within layouts/application (42.3ms)
+Completed 200 OK in 122ms (Views: 115.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-06-17 17:01:04 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 17:01:04 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mPosition Load (0.5ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  [1m[35mSchool Load (0.4ms)[0m  SELECT "schools".* FROM "schools"
+  Rendered users/_form.html.haml (13.2ms)
+  Rendered sessions/new.html.haml within layouts/application (25.8ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 17:01:04 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 17:01:04 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 17:01:04 -0400
+
+
+Started POST "/users" for 127.0.0.1 at 2014-06-17 17:01:45 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "user"=>{"type"=>"Coach", "first_name"=>"Mitch", "last_name"=>"Donaldson", "email"=>"coach@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00000105b0e428 @tempfile=#<Tempfile:/var/folders/44/1l58jbw14sj_2k73ncp0qlpc0000gn/T/RackMultipart20140617-27715-pw45kh>, @original_filename="bear.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"bear.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "school"=>"1", "terms"=>"1", "commit"=>"Save"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'coach@email.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("avatar", "created_at", "email", "first_name", "last_name", "password_digest", "type", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["avatar", "bear.jpg"], ["created_at", "2014-06-17 21:01:47.120043"], ["email", "coach@email.com"], ["first_name", "Mitch"], ["last_name", "Donaldson"], ["password_digest", "$2a$10$k.FEgRnXGDfmaHEa.uDlGu2Y6bWE/tKpNuMQqATxRTWNVsHD7Ivse"], ["type", "Coach"], ["updated_at", "2014-06-17 21:01:47.120043"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "coaching_positions" ("coach_id", "school_id") VALUES ($1, $2) RETURNING "id"  [["coach_id", 2], ["school_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3015ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 17:01:48 -0400
+Processing by SessionsController#new as HTML
+  [1m[35mPosition Load (0.4ms)[0m  SELECT "positions".* FROM "positions"
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_form.html.haml (11.3ms)
+  Rendered sessions/new.html.haml within layouts/application (16.4ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:01:49 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "email"=>"coach@email.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'coach@email.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSchool Load (0.6ms)[0m  SELECT  "schools".* FROM "schools" INNER JOIN "coaching_positions" ON "schools"."id" = "coaching_positions"."school_id" WHERE "coaching_positions"."coach_id" = $1 LIMIT 1  [["coach_id", 2]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "position_needs"  WHERE "position_needs"."coach_id" = $1  [["coach_id", 2]]
+  [1m[36mPosition Load (0.5ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  Rendered position_needs/_form.html.haml (10.5ms)
+  Rendered users/_coach_home.html.haml (48.3ms)
+  Rendered home/index.html.haml within layouts/application (50.8ms)
+Completed 200 OK in 76ms (Views: 69.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:01:54 -0400
+
+
+Started POST "/position_needs" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+Processing by PositionNeedsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LABv9+9PFw6f9rOKeyGrQURDcHD69i5ee8UeylLXIco=", "position_needs"=>["1", "2", "6"], "position_need"=>{"coach_id"=>"2"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "position_needs" ("coach_id", "created_at", "position_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["coach_id", 2], ["created_at", "2014-06-17 21:02:06.067964"], ["position_id", 1], ["updated_at", "2014-06-17 21:02:06.067964"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "position_needs" ("coach_id", "created_at", "position_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["coach_id", 2], ["created_at", "2014-06-17 21:02:06.082601"], ["position_id", 2], ["updated_at", "2014-06-17 21:02:06.082601"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "position_needs" ("coach_id", "created_at", "position_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["coach_id", 2], ["created_at", "2014-06-17 21:02:06.092925"], ["position_id", 6], ["updated_at", "2014-06-17 21:02:06.092925"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 41ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSchool Load (0.6ms)[0m  [1mSELECT  "schools".* FROM "schools" INNER JOIN "coaching_positions" ON "schools"."id" = "coaching_positions"."school_id" WHERE "coaching_positions"."coach_id" = $1 LIMIT 1[0m  [["coach_id", 2]]
+  [1m[35mPositionNeed Load (0.7ms)[0m  SELECT "position_needs".* FROM "position_needs"  WHERE "position_needs"."coach_id" = $1  [["coach_id", 2]]
+  [1m[36mPosition Load (0.4ms)[0m  [1mSELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPosition Load (0.4ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPosition Load (0.4ms)[0m  [1mSELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "position_needs"  WHERE "position_needs"."coach_id" = $1  [["coach_id", 2]]
+  [1m[36mPosition Load (0.4ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  Rendered position_needs/_form.html.haml (4.4ms)
+  Rendered users/_coach_home.html.haml (45.1ms)
+  Rendered home/index.html.haml within layouts/application (46.9ms)
+Completed 200 OK in 73ms (Views: 65.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 17:02:06 -0400
+
+
+Started GET "/players" for 127.0.0.1 at 2014-06-17 17:02:10 -0400
+Processing by UsersController#index as HTML
+  Parameters: {"type"=>"Player"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPlayer Load (2.4ms)[0m  [1mSELECT "users".* FROM "users"  WHERE "users"."type" IN ('Player')[0m
+  [1m[35mPosition Load (1.0ms)[0m  SELECT "positions".* FROM "positions" INNER JOIN "players_positions" ON "positions"."id" = "players_positions"."position_id" WHERE "players_positions"."player_id" = $1  [["player_id", 1]]
+  Rendered users/index.html.haml within layouts/application (22.0ms)
+Completed 200 OK in 47ms (Views: 37.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:02:22 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSchool Load (1.1ms)[0m  SELECT  "schools".* FROM "schools" INNER JOIN "coaching_positions" ON "schools"."id" = "coaching_positions"."school_id" WHERE "coaching_positions"."coach_id" = $1 LIMIT 1  [["coach_id", 2]]
+  [1m[36mPositionNeed Load (0.8ms)[0m  [1mSELECT "position_needs".* FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 2]]
+  [1m[35mPosition Load (0.5ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPosition Load (0.4ms)[0m  [1mSELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPosition Load (0.3ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 2]]
+  [1m[35mPosition Load (0.4ms)[0m  SELECT "positions".* FROM "positions"
+  Rendered position_needs/_form.html.haml (9.5ms)
+  Rendered users/_coach_home.html.haml (70.6ms)
+  Rendered home/index.html.haml within layouts/application (72.9ms)
+Completed 200 OK in 100ms (Views: 87.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 17:02:29 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSchool Load (0.5ms)[0m  SELECT  "schools".* FROM "schools" INNER JOIN "coaching_positions" ON "schools"."id" = "coaching_positions"."school_id" WHERE "coaching_positions"."coach_id" = $1 LIMIT 1  [["coach_id", 2]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 2]]
+  [1m[35mPosition Load (0.3ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPosition Load (0.3ms)[0m  [1mSELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPosition Load (0.3ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 2]]
+  [1m[35mPosition Load (0.3ms)[0m  SELECT "positions".* FROM "positions"
+  Rendered position_needs/_form.html.haml (4.3ms)
+  Rendered users/_coach_home.html.haml (34.6ms)
+  Rendered home/index.html.haml within layouts/application (35.8ms)
+Completed 200 OK in 52ms (Views: 46.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-06-17 17:02:31 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 17:02:31 -0400
+Processing by SessionsController#new as HTML
+  [1m[35mPosition Load (0.4ms)[0m  SELECT "positions".* FROM "positions"
+  [1m[36mSchool Load (0.4ms)[0m  [1mSELECT "schools".* FROM "schools"[0m
+  Rendered users/_form.html.haml (16.3ms)
+  Rendered sessions/new.html.haml within layouts/application (21.9ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 17:02:31 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 17:02:31 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 17:02:31 -0400
