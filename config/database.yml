@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: final_again_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: final_again_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: final_again
+  pool: 5

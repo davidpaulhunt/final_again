@@ -1,0 +1,7 @@
+- case @user.type
+- when "Player"
+  = render 'users/player_home'
+- when "Coach"
+  = render 'users/coach_home'
+- else
+  Hello, I'm the home page!

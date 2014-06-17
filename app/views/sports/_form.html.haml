@@ -1,0 +1,33 @@
+.container
+  %h3 What's your game?
+  .row
+    .form-group.form-group-multiple-selects.col-xs-11.col-sm-8.col-md-4
+      .input-group.input-group-multiple-select.col-xs-12
+        %select.form-control{name: "sports[]"}
+          %option{value: ""} Select one
+          - Sport.all.each do |sport|
+            %option{value: sport.id}
+              = sport.name
+        %span.input-group-addon.input-group-addon-remove
+          %span.glyphicon.glyphicon-remove
+.container
+  %h3 And your position?
+  .row
+    .form-group.form-group-multiple-selects.col-xs-11.col-sm-8.col-md-4
+      .input-group.input-group-multiple-select.col-xs-12
+        %select.form-control{name: "positions[]"}
+          %option{value: ""} Select one
+          - Position.all.each do |position|
+            %option{value: position.id}
+              = position.name
+        %span.input-group-addon.input-group-addon-remove
+          %span.glyphicon.glyphicon-remove
+
+/ .container
+/   %h3 Fields
+/   .row
+/     .form-group.form-group-options.col-xs-11.col-sm-8.col-md-4
+/       .input-group.input-group-option.col-xs-12
+/         %input.form-control{name: "option[]", placeholder: "Focus me", type: "text"}/
+/         %span.input-group-addon.input-group-addon-remove
+/           %span.glyphicon.glyphicon-remove

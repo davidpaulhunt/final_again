@@ -1,0 +1,50 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//
+//= depend_on_asset "background.png"
+#section1 {
+  background: url('<%= asset_path("background.png") %>') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+#sign-in {
+  color: #fff;
+}
+
+#sign-in-form {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  left: 15%;
+  right: 15%;
+  z-index: 10;
+  text-align: center;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  margin-top: 25%;
+}
+
+.welcome-image {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  max-height: 200px;
+}
+
+html, body {
+    height: 960px;
+    margin: 0;
+}
+
+.down-arrow {
+  position: absolute;
+  left: 50%;
+  margin-left: -12px;
+  width: 25px;
+  height: 14px;
+  background: url("arrow.png") no-repeat;
+  z-index: 1000;
+}

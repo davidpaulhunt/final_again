@@ -1,0 +1,32 @@
+.row
+  .col-md-2
+  .col-md-8
+    %div.page-header
+      %h1= "Welcome back, #{current_user.first_name}!"
+    - if current_user.avatar.present?
+      = image_tag current_user.avatar.url(:web, :preview), style: "border-radius:50px;height:75px;width:75px;"
+    - else
+      = image_tag "player1.jpeg", style: "border-radius:50px;height:75px;width:75px;"
+    %panel
+      - current_user.stats.each do |stat|
+        %p= stat.id
+  .col-md-2
+
+%button.btn.btn-success#new-sport{"data-toggle" => "modal", "data-target" => "#new-sport-modal"}
+  Add a Sport
+
+%div.modal.fade#new-sport-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-sport-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#new-sport-label
+          Add a Sport
+      %div.modal-body
+        = render "sports/form"
+      %div.modal-footer
+        %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+          Close</button>
+        %button.btn.btn-primary{ type: "button"}
+          Save changes

@@ -1,0 +1,2 @@
+$ ->
+  $('[rel="popover"]').popover()

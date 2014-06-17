@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %title recruit.me
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .navbar-wrapper
+      .navbar.navbar-default.navbar-fixed-top{role: "navigation"}
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only recruit.me
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "/"}
+            %span.icon-VeloMark{"data-icon" => "logo.ico"}
+            %span.logo recruit.me
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav.navbar-right
+            - if current_user
+              %li
+                = link_to "Home", root_path
+              - if current_user.type == "Player"
+                %li
+                  = link_to "Schools", schools_path
+              - else
+                %li
+                  = link_to "Players", players_path
+              %li
+                %a{href: logout_path} Logout
+        /     %li#search
+        /       %button.hidden-sm.hidden-xs{"data-target" => "#largeSearch", "data-toggle" => "collapse"}
+        /         %span.icon-search{"data-icon" => "search.ico"}
+        /       %form.navbar-search.hidden-md.hidden-lg{action: "#", method: "post"}
+        /         %input#keywords{maxlength: "100", name: "keywords", placeholder: "SEARCH", size: "18", type: "text", style: "color:#fff; placeholder-color:#fff;"}/
+        / #largeSearch.collapse
+        /   %form.navbar-largeSearch.hidden-sm.hidden-xs.row{action: "#", method: "post"}
+        /     %input#keywords{maxlength: "100", name: "keywords", placeholder: "SEARCH", size: "18", type: "text"}/
+        /     %button.btn.btn-search{name: "submit", type: "submit"}
+        /       %span.icon-arrow-right
+    .container#body-view
+      = yield

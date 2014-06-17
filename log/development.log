@@ -1,0 +1,253 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 14:45:59 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mSchool Load (0.8ms)[0m  [1mSELECT  "schools".* FROM "schools" INNER JOIN "coaching_positions" ON "schools"."id" = "coaching_positions"."school_id" WHERE "coaching_positions"."coach_id" = $1 LIMIT 1[0m  [["coach_id", 7]]
+  [1m[35mPositionNeed Load (0.4ms)[0m  SELECT "position_needs".* FROM "position_needs"  WHERE "position_needs"."coach_id" = $1  [["coach_id", 7]]
+  [1m[36mPosition Load (0.5ms)[0m  [1mSELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPosition Load (0.4ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 7]]
+  [1m[35mPosition Load (0.5ms)[0m  SELECT "positions".* FROM "positions"
+  Rendered position_needs/_form.html.haml (14.3ms)
+  Rendered users/_coach_home.html.haml (158.8ms)
+  Rendered home/index.html.haml within layouts/application (175.0ms)
+Completed 200 OK in 5042ms (Views: 4977.5ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/positions.css?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/web.css?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/sports.css?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.css?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/dataTables/jquery.dataTables.bootstrap3.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/custom.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/positions.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/schools.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/sports.js?body=1" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/assets/logo.ico" for 127.0.0.1 at 2014-06-17 14:46:05 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-17 14:46:10 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mSchool Load (0.7ms)[0m  SELECT  "schools".* FROM "schools" INNER JOIN "coaching_positions" ON "schools"."id" = "coaching_positions"."school_id" WHERE "coaching_positions"."coach_id" = $1 LIMIT 1  [["coach_id", 7]]
+  [1m[36mPositionNeed Load (0.3ms)[0m  [1mSELECT "position_needs".* FROM "position_needs"  WHERE "position_needs"."coach_id" = $1[0m  [["coach_id", 7]]
+  [1m[35mPosition Load (0.3ms)[0m  SELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mPosition Load (0.5ms)[0m  [1mSELECT  "positions".* FROM "positions"  WHERE "positions"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "position_needs"  WHERE "position_needs"."coach_id" = $1  [["coach_id", 7]]
+  [1m[36mPosition Load (0.5ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  Rendered position_needs/_form.html.haml (8.1ms)
+  Rendered users/_coach_home.html.haml (44.2ms)
+  Rendered home/index.html.haml within layouts/application (48.2ms)
+Completed 200 OK in 68ms (Views: 60.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-06-17 14:46:11 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 9ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-06-17 14:46:11 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mPosition Load (0.4ms)[0m  [1mSELECT "positions".* FROM "positions"[0m
+  [1m[35mSchool Load (0.3ms)[0m  SELECT "schools".* FROM "schools"
+  Rendered users/_form.html.haml (38.7ms)
+  Rendered sessions/new.html.haml within layouts/application (67.1ms)
+Completed 200 OK in 81ms (Views: 79.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/contract.png" for 127.0.0.1 at 2014-06-17 14:46:11 -0400
+
+
+Started GET "/assets/football.png" for 127.0.0.1 at 2014-06-17 14:46:11 -0400
+
+
+Started GET "/assets/student.png" for 127.0.0.1 at 2014-06-17 14:46:11 -0400
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (3.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140610220944)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "password_digest" character varying(255), "birthday" date, "avatar" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140610220944"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSports (20140611120639)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "sports" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140611120639"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePositions (20140611121222)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "positions" ("id" serial primary key, "sport_id" integer, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "positions_users" ("id" serial primary key, "position_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140611121222"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddColumnToPositions (20140611121841)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.4ms)[0m  ALTER TABLE "positions" ADD COLUMN "abbreviation" character varying(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140611121841"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateConferences (20140611125018)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.8ms)[0m  CREATE TABLE "conferences" ("id" serial primary key, "name" character varying(255), "region" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140611125018"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateSchools (20140611125142)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "schools" ("id" serial primary key, "name" character varying(255), "conference_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140611125142"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateAddresses (20140611125308)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "addresses" ("id" serial primary key, "school_id" integer, "building_number" integer, "street" character varying(255), "city" character varying(255), "state" character varying(255), "zip" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140611125308"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to AddColumnToConferences (20140611125522)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "conferences" ADD COLUMN "abbreviation" character varying(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140611125522"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to ChangeAddressToAllStrings (20140611132027)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "addresses" DROP "zip"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "addresses" DROP "building_number"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "addresses" ADD COLUMN "zip" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "addresses" ADD COLUMN "building_number" character varying(255)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140611132027"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateStats (20140611135137)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (7.9ms)[0m  [1mCREATE TABLE "stats" ("id" serial primary key, "user_id" integer DEFAULT 0, "sport_id" integer DEFAULT 0, "passing_yards" integer DEFAULT 0, "passing_attempts" integer DEFAULT 0, "passing_completions" integer DEFAULT 0, "passing_touchdowns" integer DEFAULT 0, "passing_interceptions" integer DEFAULT 0, "rushing_yards" integer DEFAULT 0, "rushing_attempts" integer DEFAULT 0, "rushing_touchdowns" integer DEFAULT 0, "receiving_yards" integer DEFAULT 0, "receiving_receptions" integer DEFAULT 0, "receiving_touchdowns" integer DEFAULT 0, "defensive_tackles" integer DEFAULT 0, "defensive_interceptions" integer DEFAULT 0, "defensive_sacks" integer DEFAULT 0, "defensive_touchdowns" integer DEFAULT 0, "year" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140611135137"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFavorites (20140611173228)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "favorites" ("id" serial primary key, "user_id" integer, "favorited_id" integer, "favorited_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140611173228"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddTypeToUsers (20140611174819)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "users" ADD COLUMN "type" character varying(255)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140611174819"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddJoinTableForPlayersPositions (20140612135341)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mDROP TABLE "positions_users"[0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "players_positions" ("id" serial primary key, "player_id" integer, "position_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140612135341"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+Migrating to ChangeItAll (20140612182524)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "addresses"
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "conferences"[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "favorites"
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "schools" DROP "conference_id"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" DROP "birthday"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140612182524"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+Migrating to RemoveUserIdFromStats (20140612195450)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "stats" DROP "user_id"
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "stats" ADD COLUMN "player_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140612195450"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePositionNeeds (20140613131936)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "position_needs" ("id" serial primary key, "name" character varying(255), "coach_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613131936"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddPositionIdToPositionNeeds (20140613133835)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "position_needs" ADD COLUMN "position_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613133835"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateHeadCoach (20140613140729)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "coaching_positions" ("id" serial primary key, "coach_id" integer, "school_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140613140729"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

@@ -1,0 +1,66 @@
+%section#section1.container-fluid
+  %br
+  %br
+  %br
+  .row
+    .col-md-4
+    .col-md-4
+      .span12
+        .form-horizontal#sign-in-form
+          %h1#sign-in
+            %strong Get in the game
+          = form_tag sessions_path, name: "new_session" do
+            = text_field_tag :email, params[:email], placeholder: "email", style: "border-radius: 5px;"
+            = password_field_tag :password, params[:password], placeholder: "password", style: "border-radius: 5px;"
+            = submit_tag "Login", class: "btn btn-md btn-primary"
+          %br
+          %p#sign-in{style:"font-size:1.2em;"}
+            Not on the field yet?
+            %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-user-modal", id: "new-user"} Register
+    .col-md-4
+  .text-center.v-center
+    %a{href: "index.html#section2"}
+      %span.down-arrow
+%section#section2.container-fluid
+  %br
+  %br
+  %h1.text-center.v-center Take Control
+  %hr
+  %br
+  .row
+    .col-sm-4
+      .row
+        .col-sm-10.col-sm-offset-2.text-center
+          %h3 Get a Scholarship
+          = image_tag "contract.png", class: "welcome-image"
+          %p Tote bag actually cliche, cred ethnic wolf authentic typewriter tousled Brooklyn Cosby sweater slow-carb. Distillery cray Echo Park, Austin slow-carb messenger bag cornhole umami ethical. Hashtag meh deep v readymade, cray Wes Anderson McSweeney's Kickstarter Banksy keffiyeh vinyl.
+          %i.fa.fa-cog.fa-5x
+    .col-sm-4.text-center
+      .row
+        .col-sm-10.col-sm-offset-1.text-center
+          %h3 Get an Education
+          = image_tag "student.png", class: "welcome-image"
+          %p Cardigan Neutra pug pork belly. Irony McSweeney's polaroid Truffaut. Slow-carb cray VHS, banh mi Brooklyn pork belly Marfa Godard Kickstarter Helvetica occupy fashion axe selvage. Readymade iPhone gastropub twee small batch, whatever wolf raw denim PBR&B cornhole Cosby sweater Pinterest Portland crucifix hella.
+          %i.fa.fa-user.fa-5x
+    .col-sm-4.text-center
+      .row
+        .col-sm-10.text-center
+          %h3 Get on the Field
+          = image_tag("football.png", class: "welcome-image")
+          %p Squid tattooed letterpress readymade, Vice aesthetic Etsy hoodie yr YOLO put a bird on it art party. Semiotics Carles occupy American Apparel crucifix, raw denim narwhal aesthetic pop-up street art scenester Pinterest Williamsburg twee. Scenester craft beer YOLO sriracha, viral wolf Cosby sweater 90's whatever Odd Future butcher keytar actually.
+          %i.fa.fa-mobile.fa-5x
+%br
+%br
+%br
+
+%div.modal.fade#new-user-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-user-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#new-user-label
+          Sign Up
+      %div.modal-body
+        = form_for User.new do |f|
+          = render "users/form", f:f

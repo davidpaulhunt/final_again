@@ -1,0 +1,46 @@
+- unless current_user
+  .form-group
+    Are you a player or a coach?
+    = f.select :type, options_for_select([["Player", "Player"], ["Coach", "Coach"]]), { class: "form-control" }
+%br
+.form-group
+  = f.label :first_name
+  = f.text_field :first_name, class: "form-control"
+%br
+.form-group
+  = f.label :last_name
+  = f.text_field :last_name, class: "form-control"
+%br
+.form-group
+  = f.label :email
+  = f.email_field :email, class: "form-control"
+%br
+.form-group
+  = f.label :password
+  = f.password_field :password, class: "form-control"
+%br
+.form-group
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation, class: "form-control"
+%br
+- unless current_user
+  .form-group#positions-form
+    What positions do you play?
+    = select_tag "positions[]", options_from_collection_for_select(Position.all.collect, "id", "name"), multiple: true, class: "form-control"
+- unless current_user
+  .form-group#school-form{style: "display:none"}
+    At what school do you coach?
+    = select_tag "school", options_from_collection_for_select(School.all.collect, "id", "name"), class: "form-control"
+.form-group
+  Give a good first impression, upload a photo.
+  = f.file_field :avatar
+%br
+- unless current_user
+  .checkbox
+    %label
+      = check_box_tag :terms
+      Do you agree to our terms and conditions?
+%div.modal-footer
+  %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+    Close
+  = f.submit "Save", class: "btn btn-default"

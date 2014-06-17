@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-md-2
+    .col-md-8
+      %br
+      %table.table.table-hover#schools
+        %thead
+          %tr
+            %th Name
+            %th Coaches
+            %th Needs
+        %tbody
+          - @schools.each do |school|
+            %tr
+              %td= school.name.titleize
+              %td
+                - school.coaches.each do |coach|
+                  %p= coach.first_name.capitalize
+              %td
+                - school.position_needs.each do |need|
+                  = need.position.abbreviation.upcase
+    .col-md-2

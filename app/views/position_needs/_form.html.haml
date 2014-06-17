@@ -1,0 +1,8 @@
+.form-group#position_needs-form
+  What positions do you need to fill, coach?
+  = select_tag "position_needs[]", options_from_collection_for_select(Position.all.collect, "id", "name"), multiple: true, class: "form-control"
+= f.hidden_field :coach_id, value: @user.id
+%div.modal-footer
+  %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+    Close
+  = f.submit "Submit", class: "btn btn-default"
