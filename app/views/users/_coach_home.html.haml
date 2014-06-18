@@ -27,7 +27,7 @@
             .row
               .col-xs-12.col-sm-4
                 %h2
-                  %strong= @user.notifications.count
+                  %strong= @user.notifications.active.count
                 %p
                   %small Notifications
               .col-xs-12.col-sm-4
