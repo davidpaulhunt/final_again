@@ -50,7 +50,10 @@
         .panel.panel-default
           .panel-body
             %legend Show Off Your Game
-            
+            - if @user.video.present?
+              = render "videos/video", user: @user
+            - else
+              = link_to "Add a Video", '/new_video', class: "btn btn-default"
 
       .col-md-1
       .col-md-5

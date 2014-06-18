@@ -8,6 +8,14 @@ class Player < User
 
   has_one :video
 
+  def highlights
+    if video
+      @video = Video.find(video.id)
+      @original_video = @video.panda_video
+      @h264e = @original_video.encodings['h264']
+    end
+  end
+
   def self.quarterbacks
     Position.where(name: "quarterback").first.players
   end

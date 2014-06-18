@@ -20,6 +20,17 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :home, only: :index
+
+  # match "/panda/authorize_upload" => "panda#authorize_upload", via: [:get, :post, :put, :patch]
+  resources :videos
+  # match "/panda/authorize_upload_postprocess", :to => "panda#authorize_upload_postprocess", via: [:get, :post, :put, :patch]
+  # get "/new_video", :to => "videos#simple"
+  # match "/videos/postprocess", :to => "videos#postprocess", via: [:get, :post, :put, :patch]
+
+  post "/panda/authorize_upload", :to => "panda#authorize_upload"
+  post "/panda/authorize_upload_postprocess", :to => "panda#authorize_upload_postprocess"
+  get "/new_video", :to => "videos#simple"
+  post "/videos/postprocess", :to => "videos#postprocess"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

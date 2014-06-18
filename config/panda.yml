@@ -1,0 +1,14 @@
+development:
+  access_key: 85c077a6e7f7baaae5d2
+  secret_key: c584ae7d9e40abaa9d03
+  cloud_id: 564b13fded31cf6ee220768970108694
+
+production:
+  access_key: 85c077a6e7f7baaae5d2
+  secret_key: c584ae7d9e40abaa9d03
+  cloud_id: 564b13fded31cf6ee220768970108694
+
+test:
+  access_key: 85c077a6e7f7baaae5d2
+  secret_key: c584ae7d9e40abaa9d03
+  cloud_id: 564b13fded31cf6ee220768970108694

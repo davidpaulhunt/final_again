@@ -1,0 +1,5 @@
+- if @user.highlights.status == "success"
+  %video#movie{style: "width:100%;height:200px;", "preload"=>"none", "poster"=>"#{@user.highlights.screenshots.first}", controls: true}
+    %source{src:"#{@user.highlights.url}", type:"video/mp4"}
+- else
+  = "Your video is processing: #{@user.highlights.encoding_progress.to_i}%"
