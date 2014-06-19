@@ -4,11 +4,11 @@
     .col-md-2
     .col-md-8
       .col-md-4
-        %h1= @user.first_name + " " + @user.last_name
-        = image_tag "#{@user.avatar.present? ? @user.avatar.url(:web, :preview) : 'player1.jpeg'}"
+        %h1= @player.first_name + " " + @player.last_name
+        = image_tag "#{@player.account.avatar.present? ? @player.account.avatar.url(:web, :preview) : 'player1.jpeg'}"
       .col-md-4
         %ul
-          - @user.positions.each do |position|
+          - @player.positions.each do |position|
             %li= position.abbreviation
     .col-md-2
     %br
@@ -25,7 +25,7 @@
           %th
             Passing Yards
         %tbody
-        - @user.stats.each do |stat|
+        - @player.stats.each do |stat|
           %tr
             %td= stat.year
           %tr

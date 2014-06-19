@@ -20,7 +20,7 @@
             %span.logo recruit.me
         .collapse.navbar-collapse#navbar-collapse-1
           - if current_user
-            %a.active{href: user_notifications_path(current_user.id)}
+            %a.active{href: account_notifications_path(current_user.id)}
               Notifications
               %span.badge
                 = current_user.notifications.with_new_state.count
@@ -28,7 +28,7 @@
             - if current_user
               %li
                 = link_to "Home", root_path
-              - if current_user.type == "Player"
+              - if current_user.accountable_type == "Player"
                 %li
                   = link_to "Schools", schools_path
               - else
@@ -48,3 +48,5 @@
         /       %span.icon-arrow-right
     .container#body-view
       = yield
+    %br
+    %br

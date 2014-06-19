@@ -1,6 +1,6 @@
 class PositionNeed < ActiveRecord::Base
 
-  belongs_to :coach
+  belongs_to :school
   belongs_to :position
   has_many :notifications, as: :notifieable
 

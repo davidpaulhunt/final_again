@@ -1,14 +1,14 @@
 class HomeController < ApplicationController
 
-  before_action :set_user
+  before_action :set_account
 
   def index
   end
 
   private
 
-  def set_user
-    @user = current_user
+  def set_account
+    @account = current_user
   end
 
 end

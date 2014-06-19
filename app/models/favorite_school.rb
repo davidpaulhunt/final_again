@@ -8,7 +8,7 @@ class FavoriteSchool < ActiveRecord::Base
   after_create :notify_school
 
   def notify_school
-    NewFavoriteSchoolJob.new.async.perform(school.coaches, self)
+    NewFavoriteSchoolJob.new.async.perform(school, self)
   end
   
 end

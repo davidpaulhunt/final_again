@@ -18,8 +18,8 @@
 
               / /col
               .col-xs-12.col-sm-4.text-center
-                - if @school.photo.present?
-                  %img.center-block.img-circle.img-responsive{alt: "", src: @school.photo.url}
+                - if @school.account.avatar.present?
+                  %img.center-block.img-circle.img-responsive{alt: "", src: @school.account.avatar.url}
               / /col
             .row
               .col-xs-12.col-sm-4

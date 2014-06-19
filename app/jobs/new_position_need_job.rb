@@ -1,14 +1,14 @@
 class NewPositionNeedJob
   include SuckerPunch::Job
 
-  def perform(group, school)
-    build_notifications(group, school)
+  def perform(players, school)
+    build_notifications(players, school)
     # AssignmentMailer.notify_cohort_new_assignment(group, assignment)
   end
 
-  def build_notifications(group, school)
-    group.each do |user|
-      note = user.notifications.build
+  def build_notifications(players, school)
+    players.each do |player|
+      note = player.account.notifications.build
       note.notifieable_id = school.id
       note.notifieable_type = "PositionNeed"
       note.save!

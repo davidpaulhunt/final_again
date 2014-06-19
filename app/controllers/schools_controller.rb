@@ -1,12 +1,15 @@
 class SchoolsController < ApplicationController
 
   before_action :set_school, only: [:show, :edit, :update]
+  skip_filter :ensure_logged_in, only: [:new, :create]
 
   def index
     @schools = School.all
   end
 
   def new
+    @school = School.new
+    @school.build_account
   end
 
   def create
@@ -26,6 +29,10 @@ class SchoolsController < ApplicationController
 
   def set_school
     @school = School.find(params[:id])
+  end
+
+  def school_params
+    params.require(:school).permit(:name, :web_url, account_attributes: [ :email, :password, :password_confirmation, :location, :about, :avatar, :terms, :accountable_id, :accountable_type ] )
   end
 
 end

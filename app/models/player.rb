@@ -1,5 +1,6 @@
-class Player < User
+class Player < ActiveRecord::Base
 
+  has_one :account, as: :accountable
   has_and_belongs_to_many :positions, foreign_key: :player_id, join_table: :players_positions
 
   has_many :stats
@@ -8,11 +9,21 @@ class Player < User
 
   has_one :video
 
+  accepts_nested_attributes_for :account
+
+  # scope :active, -> { Player.joins(:accounts).where(active: true) }
+
   def highlights
     if video
       @video = Video.find(video.id)
       @original_video = @video.panda_video
       @h264e = @original_video.encodings['h264']
+    end
+  end
+
+  def update_positions(ids)
+    ids.each do |id|
+      positions << Position.find(id.to_i) unless positions.include?(Position.find(id.to_i))
     end
   end
 

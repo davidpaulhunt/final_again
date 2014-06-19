@@ -7,16 +7,14 @@
         %thead
           %tr
             %th Name
-            %th Coaches
+            %th Location
             %th Needs
         %tbody
           - @schools.each do |school|
             %tr
               %td
                 = link_to "#{school.name.titleize}", school
-              %td
-                - school.coaches.each do |coach|
-                  %p= coach.first_name.capitalize
+              %td= school.account.location.upcase
               %td
                 - school.position_needs.each do |need|
                   = need.position.abbreviation.upcase

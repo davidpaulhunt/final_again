@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class UserAvatarUploader < CarrierWave::Uploader::Base
+class AccountAvatarUploader < CarrierWave::Uploader::Base
 
 
   include CarrierWave::MiniMagick

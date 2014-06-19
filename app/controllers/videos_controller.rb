@@ -19,7 +19,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create!(video_params)
-    redirect_to :action => :show, :id => @video.id
+    redirect_to root_path
   end
 
   def postprocess

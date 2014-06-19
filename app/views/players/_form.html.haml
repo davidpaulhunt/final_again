@@ -1,0 +1,46 @@
+.form-group
+  = f.label :first_name
+  = f.text_field :first_name, class: "form-control"
+%br
+.form-group
+  = f.label :last_name
+  = f.text_field :last_name, class: "form-control"
+%br
+= f.fields_for :account do |ff|
+  = ff.hidden_field :active, value: true
+  .form-group
+    = ff.label "Say something about yourself"
+    = ff.text_area :about, class: "form-control"
+  %br
+  .form-group
+    = ff.label "Where are you from?"
+    = ff.text_field :location, class: "form-control"
+  %br
+  .form-group
+    = ff.label :email
+    = ff.email_field :email, class: "form-control"
+  %br
+  .form-group
+    = ff.label :password
+    = ff.password_field :password, class: "form-control"
+  %br
+  .form-group
+    = ff.label :password_confirmation
+    = ff.password_field :password_confirmation, class: "form-control"
+  .form-group
+    Give a good first impression, upload a photo.
+    = ff.file_field :avatar
+  %br
+  - unless current_user
+    .checkbox
+      %label
+        = check_box_tag :terms
+        Do you agree to our terms and conditions?
+%br
+.form-group#positions-form
+  What positions do you play?
+  = select_tag "positions[]", options_from_collection_for_select(choose_positions(@player).collect, "id", "name"), multiple: true, class: "form-control"
+  %small You can delete current positions on your home page.
+%hr
+  = link_to "Cancel", login_path, class: "btn btn-default"
+  = f.submit "Save", class: "btn btn-default"

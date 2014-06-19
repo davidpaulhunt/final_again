@@ -5,10 +5,13 @@ class SessionsController < ApplicationController
   before_filter :in_session, only: :new
 
   def create
-    user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
+    user = Account.find_by_email(params[:email]).try(:authenticate, params[:password])
 
+    # if !user.active
+    #   redirect_to login_path
+    # end
     if user
-      session[:user_id] = user.id
+      session[:account_id] = user.id
       redirect_to root_path
     else
       flash.now.alert = "Invalid email or password."
@@ -17,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:account_id] = nil
     redirect_to login_path, notice: "You have logged out."
   end
 

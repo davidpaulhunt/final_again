@@ -15,8 +15,10 @@
             = submit_tag "Login", class: "btn btn-md btn-primary"
           %br
           %p#sign-in{style:"font-size:1.2em;"}
-            Not on the field yet?
-            %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-user-modal", id: "new-user"} Register
+            Not on the field yet? Register as a
+            %a{href: new_player_path, style: "color:#029ece;"} Player
+            or a
+            %a{href: new_school_path, style: "color:#029ece;"} School
     .col-md-4
   .text-center.v-center
     %a{href: "index.html#section2"}
@@ -53,14 +55,14 @@
 %br
 %br
 
-%div.modal.fade#new-user-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-user-label", "aria-hidden" => "true"}
-  %div.modal-dialog
-    %div.modal-content
-      %div.modal-header
-        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
-          &times;
-        %h4.modal-title#new-user-label
-          Sign Up
-      %div.modal-body
-        = form_for User.new do |f|
-          = render "users/form", f:f
+/ %div.modal.fade#new-player-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-user-label", "aria-hidden" => "true"}
+/   %div.modal-dialog
+/     %div.modal-content
+/       %div.modal-header
+/         %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+/           &times;
+/         %h4.modal-title#new-player-label
+/           Sign Up
+/       %div.modal-body
+/         = form_for Player.new do |f|
+/           = render "players/form", f:f

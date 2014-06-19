@@ -4,31 +4,31 @@
   .row
     .col-md-2
     .col-md-8
-      %legend= @user.type
+      %legend Home
       .col-md-6
         .panel.panel-default
           .panel-body
             .row
               .col-xs-12.col-sm-8
-                %h2= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}"
+                %h2= "#{player.first_name.capitalize} #{player.last_name.capitalize}"
                 %p
                   %strong Positions:
-                  - @user.positions.each do |pos|
+                  - player.positions.each do |pos|
                     %span.label.label-info.tags= pos.abbreviation.upcase
 
               / /col
               .col-xs-12.col-sm-4.text-center
-                %img.center-block.img-circle.img-responsive{alt: "", src: @user.avatar.url}
+                %img.center-block.img-circle.img-responsive{alt: "", src: @account.avatar.url}
               / /col
             .row
               .col-xs-12.col-sm-4
                 %h2
-                  %strong= @user.notifications.active.count
+                  %strong= @account.notifications.active.count
                 %p
                   %small Notifications
               .col-xs-12.col-sm-4
                 %h2
-                  %strong= @user.favorite_schools.count
+                  %strong= player.favorite_schools.count
                 %p
                   %small Favorites
               .col-xs-12.col-sm-4
@@ -44,14 +44,14 @@
                     Notifications
               / /col
               .col-xs-18.col-sm-6
-                %a{href: edit_player_path(@user)}
+                %a{href: edit_player_path(player)}
                   %button.btn.btn-default.btn-block{type: "button"}
                     Edit Profile
         .panel.panel-default
           .panel-body
             %legend Show Off Your Game
-            - if @user.video.present?
-              = render "videos/video", user: @user
+            - if player.video.present?
+              = render "videos/video", player: player
             - else
               = link_to "Add a Video", '/new_video', class: "btn btn-default"
 
@@ -66,7 +66,7 @@
                 %th School
                 %th Interested Players
               %tbody
-                - @user.favorite_schools.each do |favorite|
+                - player.favorite_schools.each do |favorite|
                   %tr
                     %td= favorite.school.name
                     %td= favorite.school.favorite_schools.count
@@ -81,10 +81,10 @@
         %h4.modal-title#notifications-label
           Your Notifications
       %div.modal-body
-        - if @user.notifications.empty?
+        - if @account.notifications.empty?
           %strong You don't have any notifications!
         %ul
-          = render @user.notifications.active
+          = render @account.notifications.active
       %div.modal-footer
         %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
           Close
