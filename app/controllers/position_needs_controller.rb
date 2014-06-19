@@ -2,11 +2,11 @@ class PositionNeedsController < ApplicationController
 
   def create
     needs = params[:position_needs]
-    coach_id = params[:position_need][:coach_id]
-    coach = Coach.find(coach_id)
+    school_id = params[:position_need][:school_id]
+    school = School.find(school_id)
     needs.each do |need|
-      if !coach.position_needs.where(position_id: need.to_i).present?
-        PositionNeed.create(position_id: need, coach_id: coach_id)
+      if !school.position_needs.where(position_id: need.to_i).present?
+        PositionNeed.create(position_id: need, school_id: school_id)
       end
     end
     redirect_to :back
@@ -24,7 +24,7 @@ class PositionNeedsController < ApplicationController
   private
 
   def position_need_params
-    params.require(:position_need).permit(:position_needs, :coach_id)
+    params.require(:position_need).permit(:position_needs, :school_id)
   end
 
 end

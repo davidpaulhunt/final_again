@@ -2,4 +2,4 @@
   - when "FavoriteSchool"
     %li= link_to "Your school was favorited by #{notification.notifieable.player.first_name}.", notification.notifieable.player
   - when "PositionNeed"
-    %li= link_to "#{notification.notifieable.coach.school.name} has added #{notification.notifieable.position.abbreviation.upcase} to their needs.", notification.notifieable.coach.school
+    %li= link_to "#{notification.notifieable.school.name} has added #{notification.notifieable.position.abbreviation.upcase} to their needs.", notification.notifieable.school

@@ -1,18 +1,16 @@
 class NewFavoriteSchoolJob
   include SuckerPunch::Job
 
-  def perform(group, player)
-    build_notifications(group, player)
+  def perform(school, player)
+    build_notifications(school, player)
     # AssignmentMailer.notify_cohort_new_assignment(group, assignment)
   end
 
-  def build_notifications(group, player)
-    group.each do |user|
-      note = user.notifications.build
-      note.notifieable_id = player.id
-      note.notifieable_type = "FavoriteSchool"
-      note.save!
-    end
+  def build_notifications(school, player)
+    note = school.account.notifications.build
+    note.notifieable_id = player.id
+    note.notifieable_type = "FavoriteSchool"
+    note.save!
   end
 
 end

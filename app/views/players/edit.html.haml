@@ -1,0 +1,7 @@
+.col-md-2
+.col-md-8
+  %br
+  %legend Update Profile
+  = form_for @player, method: :patch do |f|
+    = render "form", f:f
+.col-md-2

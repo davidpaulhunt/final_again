@@ -9,7 +9,7 @@ class Notification < ActiveRecord::Base
     state :reviewed
   end
 
-  belongs_to :user
+  belongs_to :account
   belongs_to :notifieable, polymorphic: true
 
   after_create :new_notification
@@ -31,12 +31,12 @@ class Notification < ActiveRecord::Base
   end
 
   def self.mark_reviewed(type, notifieable_id, current_user_id)
-    @user = User.find(current_user_id)
+    @user = Account.find(current_user_id)
     @notes = @user.notifications.active
     @notes.each do |note|
       case type
       when "school"
-        if note.notifieable.coach.school.id == notifieable_id.to_i
+        if note.notifieable.school.id == notifieable_id.to_i
           note.review!
           note.save
         end

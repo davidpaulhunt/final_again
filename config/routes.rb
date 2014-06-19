@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
 
+  resources :players do
+    collection do
+      get 'position_search'
+      get 'location_search'
+    end
+  end
+
   root "home#index"
 
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
 
-  resources :users, only: [:new, :create] do
+  resources :accounts, only: [:new, :create] do
     resources :notifications
   end
-  resources :players, controller: "users", type: "Player", only: [:index, :show, :edit, :update]
-  resources :coaches, controller: "users", type: "Coach", only: [:edit, :update, :destroy]
-
   resources :position_needs, only: [:create, :destroy]
 
-  resources :schools, only: [:index, :show, :new, :create]
+  resources :schools, only: [:index, :show, :new, :create] do
+    collection do
+      get 'position_needs_search'
+      get 'location_search'
+    end
+  end
 
   resources :favorite_schools, only: [:create, :destroy]
   

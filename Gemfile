@@ -36,6 +36,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog', '~> 1.3.1'
 gem 'panda'
+gem "letter_opener", :group => :development
 
 gem 'rails_12factor', group: :production
 # Use Capistrano for deployment

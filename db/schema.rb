@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617210943) do
+ActiveRecord::Schema.define(version: 20140618220303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "coaching_positions", force: true do |t|
-    t.integer "coach_id"
-    t.integer "school_id"
+  create_table "accounts", force: true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "avatar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "accountable_id"
+    t.string   "accountable_type"
+    t.string   "location"
+    t.text     "about"
+    t.boolean  "active"
   end
 
   create_table "favorite_schools", force: true do |t|
@@ -27,12 +35,17 @@ ActiveRecord::Schema.define(version: 20140617210943) do
   end
 
   create_table "notifications", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "account_id"
     t.integer  "notifieable_id"
     t.string   "notifieable_type"
     t.string   "workflow_state"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "players", force: true do |t|
+    t.string "first_name"
+    t.string "last_name"
   end
 
   create_table "players_positions", force: true do |t|
@@ -44,14 +57,13 @@ ActiveRecord::Schema.define(version: 20140617210943) do
 
   create_table "position_needs", force: true do |t|
     t.string   "name"
-    t.integer  "coach_id"
+    t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position_id"
   end
 
   create_table "positions", force: true do |t|
-    t.integer  "sport_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,17 +74,10 @@ ActiveRecord::Schema.define(version: 20140617210943) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo"
-  end
-
-  create_table "sports", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "web_url"
   end
 
   create_table "stats", force: true do |t|
-    t.integer  "sport_id",                default: 0
     t.integer  "passing_yards",           default: 0
     t.integer  "passing_attempts",        default: 0
     t.integer  "passing_completions",     default: 0
@@ -92,17 +97,6 @@ ActiveRecord::Schema.define(version: 20140617210943) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "player_id"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "avatar"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "type"
   end
 
   create_table "videos", force: true do |t|
