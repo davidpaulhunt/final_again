@@ -14,7 +14,7 @@
   %br
   .form-group
     = ff.label "Where are you from?"
-    = ff.text_field :location, class: "form-control"
+    = select_tag "player[account_attributes][location]", options_for_select(us_states), class: "form-control"
   %br
   .form-group
     = ff.label :email
