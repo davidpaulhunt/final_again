@@ -47,6 +47,8 @@
                 %a{href: edit_player_path(player)}
                   %button.btn.btn-default.btn-block{type: "button"}
                     Edit Profile
+      .col-md-1
+      .col-md-5
         .panel.panel-default
           .panel-body
             %legend Show Off Your Game
@@ -54,23 +56,64 @@
               = render "videos/video", player: player
             - else
               = link_to "Add a Video", '/new_video', class: "btn btn-default"
-
-      .col-md-1
-      .col-md-5
-        .panel.panel-default#fav-schools
-          .panel-body
-            %legend
-              %small Favorite Schools
-            %table.table.table-striped
-              %thead
-                %th School
-                %th Interested Players
-              %tbody
-                - player.favorite_schools.each do |favorite|
-                  %tr
-                    %td= favorite.school.name
-                    %td= favorite.school.favorite_schools.count
+        / .panel.panel-default#fav-schools
+        /   .panel-body
+        /     %legend
+        /       %small Your Sports
+        /       %a.navbar-right{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-stat-modal", id: "new-stat"}
+        /         %button.btn.btn-xs.btn-default
+        /           %small Be Proud, Add Stats
+        /     %table.table.table-striped
+        /       %thead
+        /         %th Sport
+        /         %th Stat
+        /         %th Value
+        /       %tbody
+        /         - player.player_stats.each do |pstat|
+        /           %tr
+        /             %td= pstat.stat.sport.name
+        /             %td= pstat.stat.name
+        /             %td= pstat.value
     .col-md-2
+  .row
+    .col-md-2
+    .col-md-8
+      %legend Manage Your Stats
+      - @account.accountable.sports.uniq.each do |sport|
+        .row
+          %h2.sport-stat{"sport_id" => sport.id}= sport.name.titleize
+          %div{id: "sport-stat-block-#{sport.id}", style: "display:none;"}
+            - @account.accountable.player_stats.joins(:stat).where("stats.sport_id = ?", sport.id).each do |pstat|
+              .col-md-2
+                %h2
+                  %strong
+                    %label{id: "stat-value-#{pstat.id}"}= pstat.value
+                %p
+                  %small= pstat.stat.name.titleize
+                %hr
+                %input.form-control{type:"text", id: "player-stat-input-#{pstat.id}"}
+                %div.btn.btn-xs.btn-default.btn-block.change-stat{id: "add-stat-#{pstat.id}", "action" => "add", "stat_id" => pstat.id, type: "button"}
+                  plus
+                %div.btn.btn-xs.btn-default.btn-block.change-stat{id: "subtract-stat-#{pstat.id}", "action" => "subtract", "stat_id" => pstat.id}
+                  minus
+              .col-md-1
+        %hr
+    .col-md-2
+  / .row
+  /   .col-md-2
+  /   .col-md-8
+  /     %legend
+  /       %small Favorite Schools
+  /     %table.table.table-striped
+  /       %thead
+  /         %th School
+  /         %th Interested Players
+  /       %tbody
+  /         - player.favorite_schools.each do |favorite|
+  /           %tr
+  /             %td= favorite.school.name
+  /             %td= favorite.school.favorite_schools.count
+  /   .col-md-2
 
 %div.modal.fade#notifications-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "notifications-label", "aria-hidden" => "true"}
   %div.modal-dialog
@@ -88,3 +131,6 @@
       %div.modal-footer
         %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
           Close
+
+%div.modal.fade#new-stat-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "stat-label", "aria-hidden" => "true"}
+  = render "player_stats/form", player: @account.accountable

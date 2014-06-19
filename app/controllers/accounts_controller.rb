@@ -19,7 +19,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    if @account.save
+    if @account.update_attributes(account_params)
       redirect_to root_path
     else
       flash.now.alert = "Oops, there was an error."
@@ -46,7 +46,7 @@ class AccountsController < ApplicationController
   end
 
   def account_params
-    params.require(type.underscore.to_sym).permit(:email, :password, :password_confirmation, :location, :about, :terms, :avatar, :accountable_id, :accountable_type)
+    params.require(:account).permit(:email, :password, :password_confirmation, :location, :about, :terms, :avatar, :accountable_id, :accountable_type, :active, :id)
   end
 
   # def set_user

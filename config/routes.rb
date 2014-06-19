@@ -7,12 +7,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :stats
+  resources :player_stats
+
   root "home#index"
 
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
 
-  resources :accounts, only: [:new, :create] do
+  resources :accounts, only: [:new, :create, :update] do
     resources :notifications
   end
   resources :position_needs, only: [:create, :destroy]
