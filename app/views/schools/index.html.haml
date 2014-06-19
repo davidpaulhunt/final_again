@@ -3,6 +3,13 @@
     .col-md-2
     .col-md-8
       %br
+      .row
+        %h3
+          %strong Find:
+          %a{href: schools_path}
+            All
+          - Position.all.each do |pos|
+            = link_to "#{pos.abbreviation.upcase}", "/schools/position_needs_search?position=#{pos.name}"
       %table.table.table-hover#schools
         %thead
           %tr
@@ -14,7 +21,9 @@
             %tr
               %td
                 = link_to "#{school.name.titleize}", school
-              %td= school.account.location.upcase
+              %td
+                %p{syle: "color:black;"}
+                  = link_to "#{school.account.location.upcase}", "/schools/location_search?location=#{school.account.location}"
               %td
                 - school.position_needs.each do |need|
                   = need.position.abbreviation.upcase

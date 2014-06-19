@@ -27,6 +27,14 @@ class Player < ActiveRecord::Base
     end
   end
 
+  def favorited(school)
+    @current = []
+    favorite_schools.each do |fav|
+      @current.push(fav.school)
+    end
+    @current.include?(school)
+  end
+
   def self.quarterbacks
     Position.where(name: "quarterback").first.players
   end

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :players
+  resources :players do
+    collection do
+      get 'position_search'
+      get 'location_search'
+    end
+  end
 
   root "home#index"
 
@@ -12,7 +17,12 @@ Rails.application.routes.draw do
   end
   resources :position_needs, only: [:create, :destroy]
 
-  resources :schools, only: [:index, :show, :new, :create]
+  resources :schools, only: [:index, :show, :new, :create] do
+    collection do
+      get 'position_needs_search'
+      get 'location_search'
+    end
+  end
 
   resources :favorite_schools, only: [:create, :destroy]
   

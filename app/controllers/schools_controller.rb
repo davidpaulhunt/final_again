@@ -25,6 +25,18 @@ class SchoolsController < ApplicationController
     Notification.mark_reviewed("school", params[:id], current_user.id)
   end
 
+  def location_search
+    location = params[:location]
+    @schools = School.joins(:account).where("accounts.location = ?", location)
+    render :index
+  end
+
+  def position_needs_search
+    position = params[:position]
+    @schools = School.joins(:positions).where("positions.name = ?", position)
+    render :index
+  end
+
   private
 
   def set_school

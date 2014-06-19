@@ -43,6 +43,18 @@ class PlayersController < ApplicationController
     end
   end
 
+  def position_search
+    position = params[:position]
+    @players = Player.joins(:positions).where("positions.name = ?", position)
+    render :index
+  end
+
+  def location_search
+    location = params[:location]
+    @players = Player.joins(:account).where("accounts.location = ?", location)
+    render :index
+  end
+
   private
 
   def set_player
