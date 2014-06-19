@@ -1,0 +1,26 @@
+%div.modal-dialog
+  %div.modal-content
+    %div.modal-header
+      %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+        &times;
+      %h4.modal-title#stat-label
+        Add a Stat
+    %div.modal-body
+      = form_for player.player_stats.build do |f|
+        = f.hidden_field :player_id, value: player.id
+        .form-group
+          - player.sports.each do |sport|
+            .checkbox
+              %label
+                %input.sport-stat-select{type: "checkbox", "sport_id" => sport.id}
+                  = sport.name
+            .div{id: "stat-select-#{sport.id}", style: "display:none;"}
+              = select_tag "player_stat[stat_id]", options_from_collection_for_select(sport.stats.collect, "id", "name"), include_blank: true, class: "form-control"
+        .form-group
+          Total
+          = f.number_field :value, class: "form-control"
+        %br
+        = f.submit "Save!", class: "btn btn-default"
+    %div.modal-footer
+      %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+        Close

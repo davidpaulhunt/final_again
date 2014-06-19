@@ -38,8 +38,15 @@
         Do you agree to our terms and conditions?
 %br
 .form-group#positions-form
-  What positions do you play?
-  = select_tag "positions[]", options_from_collection_for_select(choose_positions(@player).collect, "id", "name"), multiple: true, class: "form-control"
+  What sports do you play?
+  - Sport.all.each do |sport|
+    .checkbox
+      %label
+        %input.sport-select{type: "checkbox", "sport_id" => "#{sport.id}"}
+          = sport.name
+    %br
+    .div{id: "position-select-#{sport.id}", style: "display:none;"}
+      = select_tag "positions[]", options_from_collection_for_select(choose_positions(sport, @player).collect, "id", "name"), multiple: true, class: "form-control"
   %small You can delete current positions on your home page.
 %hr
   = link_to "Cancel", login_path, class: "btn btn-default"

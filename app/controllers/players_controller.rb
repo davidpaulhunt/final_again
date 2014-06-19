@@ -9,11 +9,12 @@ class PlayersController < ApplicationController
 
   def new
     @player = Player.new
-    @player.build_account
+    @account = @player.build_account
   end
 
   def create
     @player = Player.create(player_params)
+    @account = @player.account
     if @player.save
       if params[:positions]
         @player.update_positions(params[:positions])
@@ -32,7 +33,7 @@ class PlayersController < ApplicationController
   end
 
   def update
-    @player = Player.find(params[:id])
+    @player.account.update_attributes(player_params[:account_attributes])
     if @player.update_attributes(player_params)
       if params[:positions]
         @player.update_positions(params[:positions])
@@ -62,6 +63,6 @@ class PlayersController < ApplicationController
   end
 
   def player_params
-    params.require(:player).permit(:first_name, :last_name, account_attributes: [ :email, :password, :password_confirmation, :location, :about, :avatar, :terms, :accountable_id, :accountable_type ] )
+    params.require(:player).permit(:first_name, :last_name, account_attributes: [:id, :active, :email, :password, :password_confirmation, :location, :about, :avatar, :terms, :accountable_id, :accountable_type ] )
   end
 end

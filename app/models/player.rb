@@ -3,7 +3,10 @@ class Player < ActiveRecord::Base
   has_one :account, as: :accountable
   has_and_belongs_to_many :positions, foreign_key: :player_id, join_table: :players_positions
 
-  has_many :stats
+  has_many :sports, through: :positions
+
+  has_many :stats, through: :player_stats
+  has_many :player_stats
 
   has_many :favorite_schools, -> { limit(5) }
 
@@ -24,6 +27,15 @@ class Player < ActiveRecord::Base
   def update_positions(ids)
     ids.each do |id|
       positions << Position.find(id.to_i) unless positions.include?(Position.find(id.to_i))
+    end
+    update_player_stats
+  end
+
+  def update_player_stats
+    sports.uniq.each do |sport|
+      sport.stats.each do |stat|
+        PlayerStat.create(value: 0, stat_id: stat.id, player_id: self.id) unless self.stats.include?(Stat.find(stat.id))
+      end
     end
   end
 

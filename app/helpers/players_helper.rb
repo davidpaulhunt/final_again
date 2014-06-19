@@ -1,8 +1,8 @@
 module PlayersHelper
 
-  def choose_positions(player)
+  def choose_positions(sport, player)
     array = []
-    Position.all.each do |p|
+    sport.positions.all.each do |p|
       array.push(p)
     end
     player.positions.each do |pos|

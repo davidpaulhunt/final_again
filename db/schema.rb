@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618220303) do
+ActiveRecord::Schema.define(version: 20140619164813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 20140618220303) do
     t.datetime "updated_at"
   end
 
+  create_table "player_stats", force: true do |t|
+    t.integer "player_id"
+    t.integer "stat_id"
+    t.integer "value"
+  end
+
   create_table "players", force: true do |t|
     t.string "first_name"
     t.string "last_name"
@@ -68,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140618220303) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "abbreviation"
+    t.integer  "sport_id"
   end
 
   create_table "schools", force: true do |t|
@@ -77,26 +84,15 @@ ActiveRecord::Schema.define(version: 20140618220303) do
     t.string   "web_url"
   end
 
+  create_table "sports", force: true do |t|
+    t.string  "name"
+    t.boolean "male",   default: true
+    t.boolean "female", default: true
+  end
+
   create_table "stats", force: true do |t|
-    t.integer  "passing_yards",           default: 0
-    t.integer  "passing_attempts",        default: 0
-    t.integer  "passing_completions",     default: 0
-    t.integer  "passing_touchdowns",      default: 0
-    t.integer  "passing_interceptions",   default: 0
-    t.integer  "rushing_yards",           default: 0
-    t.integer  "rushing_attempts",        default: 0
-    t.integer  "rushing_touchdowns",      default: 0
-    t.integer  "receiving_yards",         default: 0
-    t.integer  "receiving_receptions",    default: 0
-    t.integer  "receiving_touchdowns",    default: 0
-    t.integer  "defensive_tackles",       default: 0
-    t.integer  "defensive_interceptions", default: 0
-    t.integer  "defensive_sacks",         default: 0
-    t.integer  "defensive_touchdowns",    default: 0
-    t.integer  "year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "player_id"
+    t.integer "sport_id"
+    t.string  "name"
   end
 
   create_table "videos", force: true do |t|
