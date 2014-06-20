@@ -1,0 +1,11 @@
+%div.modal.fade#new-position_need-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-position_need-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#new-position_need-label
+          New Need
+      %div.modal-body
+        = form_for PositionNeed.new do |f|
+          = render "position_needs/form", f:f

@@ -1,32 +1,27 @@
-.container
-  .row
-    .col-md-2
-    .col-md-8
-      %br
-      .row
-        %h3
-          %strong Find:
-          %a{href: players_path}
-            All
-          - Position.all.each do |pos|
-            = link_to "#{pos.abbreviation.upcase}", "/players/position_search?position=#{pos.name}"
-      %table.table.table-hover#playersTable
-        %thead
-          %tr
-            %th Position
-            %th Name
-            %th Location
-        %tbody
-          - @players.each do |player|
-            %tr
-              %td
-                %p{syle: "color:black;"}
-                  - player.positions.each do |pos|
-                    = link_to "#{pos.abbreviation.upcase}", "/players/position_search?position=#{pos.name}"
-              %td
-                %a{href: player_path(player)}
-                  %p= "#{player.first_name.capitalize} #{player.last_name.capitalize}"
-              %td
-                %p{syle: "color:black;"}
-                  = link_to "#{player.account.location.upcase}", "/players/location_search?location=#{player.account.location}"
-    .col-md-2
+%br
+.row
+  %h3
+    %strong Find:
+    %a{href: players_path}
+      All
+    - Position.all.each do |pos|
+      = link_to "#{pos.abbreviation.upcase}", "/players/position_search?position=#{pos.name}"
+%table.table.table-hover#playersTable
+  %thead
+    %tr
+      %th Position
+      %th Name
+      %th Location
+  %tbody
+    - @players.each do |player|
+      %tr
+        %td
+          %p{syle: "color:black;"}
+            - player.positions.each do |pos|
+              = link_to "#{pos.abbreviation.upcase}", "/players/position_search?position=#{pos.name}"
+        %td
+          %a{href: player_path(player)}
+            %p= "#{player.first_name.capitalize} #{player.last_name.capitalize}"
+        %td
+          %p{syle: "color:black;"}
+            = link_to "#{player.account.location.upcase}", "/players/location_search?location=#{player.account.location}"

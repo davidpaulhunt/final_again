@@ -21,9 +21,23 @@
  *= require_tree .
  *= require_self
  */
+.gutter {
+  min-height: 100%;
+  background: url("background22.jpg");
+}
 
-#body-view {
-  height: 100vh;
+html {
+  min-height: 100vh;
+}
+
+.stat-box{
+  padding: 5px;
+  width: auto;
+  height:210px;
+  border: 2px solid #bed5cd;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .btn-xs{ display:inline-block; margin-bottom:0; font-weight:normal; text-align:center; vertical-align:middle; cursor:pointer; background-image:none; border:1px solid transparent; white-space:nowrap; padding:5px 6px; font-size:10px; text-shadow:none; text-transform:uppercase; line-height:.5; color:#fff; background-color:transparent; -webkit-transition:all 0.2s ease-in-out; transition:all 0.2s ease-in-out; border-color:#fff; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none}

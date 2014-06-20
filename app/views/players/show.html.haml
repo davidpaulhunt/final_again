@@ -1,65 +1,60 @@
-.container
-  %br
-  %br
-  .row
-    .col-md-2
-    .col-md-8
-      .row
-        .col-md-10
-          %h1= "#{@player.first_name.titleize} #{@player.last_name.titleize}"
-        .col-md-2
-          - if @player.favorited(current_user.accountable)
-            %button.btn.btn-sm.btn-default.disabled
-              Has Favorited You!
-          - else
-            %button.btn.btn-sm.btn-default.disabled
-              Has Not Favorited You :(
-      %hr
-      .row
-        .col-md-6
-          .panel.panel-default
-            .panel-body
-              .row
-                / /col
-                .col-xs-12.col-sm-4.text-center
-                  - if @player.account.avatar.present?
-                    %img.center-block.img-responsive{alt: "", src: @player.account.avatar.url}
-                .col-xs-18.col-sm-6
-              .row
-                .col-xs-12.col-sm-4
-                  %h2
-                    %strong= @player.favorite_schools.count
-                  %p
-                    %small Favorited
-                .col-xs-12.col-sm-4
-                  %h2
-                    %strong= @player.favorite_schools.count
-                  %p
-                    %small Favorited
-                .col-xs-12.col-sm-4
-                  %h2
-                    %strong= @player.account.location.upcase
-                  %p
-                    %small Location
-              .row
-                .col-xs-12.col-sm-8
-                  %p
-                    %strong Positions:
-                    - @player.positions.each do |position|
-                      %span.label.label-info.tags= position.abbreviation.upcase
-        .col-md-1
-        .col-md-5
-          .panel.panel-default#player-highlights
-            .panel-body
-              %legend= "#{@player.first_name.titleize} #{@player.last_name.titleize}'s Highlights"
-              - if @player.video.present?
-                = render "videos/video", player: @player
-              - else
-                %p This player hasn't posted any highlights.
-      .row
-        .col-md-12
-          .panel.panel-default#school-description
-            .panel-body
-              %legend= "About #{@player.first_name.titleize} #{@player.last_name.titleize}"
-              %p= @player.account.about
-    .col-md-2
+%br
+.row
+  .col-md-8
+    %h1= "#{@player.first_name.titleize} #{@player.last_name.titleize}"
+  .col-md-2
+    - if @player.favorited(current_user.accountable)
+      %button.btn.btn-sm.btn-default.disabled
+        Has Favorited You!
+    - else
+      %button.btn.btn-sm.btn-default.disabled
+        Has Not Favorited You :(
+  .col-md-2
+%hr
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-body
+        .row
+          / /col
+          .col-xs-12.col-sm-4.text-center
+            - if @player.account.avatar.present?
+              %img.center-block.img-responsive{alt: "", src: @player.account.avatar.url}
+          .col-xs-18.col-sm-6
+        .row
+          .col-xs-12.col-sm-4
+            %h2
+              %strong= @player.favorite_schools.count
+            %p
+              %small Favorited
+          .col-xs-12.col-sm-4
+            %h2
+              %strong= @player.favorite_schools.count
+            %p
+              %small Favorited
+          .col-xs-12.col-sm-4
+            %h2
+              %strong= @player.account.location.upcase
+            %p
+              %small Location
+        .row
+          .col-xs-12.col-sm-8
+            %p
+              %strong Positions:
+              - @player.positions.each do |position|
+                %span.label.label-info.tags= position.abbreviation.upcase
+  .col-md-1
+  .col-md-5
+    .panel.panel-default#player-highlights
+      .panel-body
+        %legend= "#{@player.first_name.titleize} #{@player.last_name.titleize}'s Highlights"
+        - if @player.video.present?
+          = render "videos/video", player: @player
+        - else
+          %p This player hasn't posted any highlights.
+.row
+  .col-md-12
+    .panel.panel-default#school-description
+      .panel-body
+        %legend= "About #{@player.first_name.titleize} #{@player.last_name.titleize}"
+        %p= @player.account.about

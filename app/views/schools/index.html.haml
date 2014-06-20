@@ -1,30 +1,28 @@
-.container
-  .row
-    .col-md-2
-    .col-md-8
-      %br
-      .row
-        %h3
-          %strong Find:
-          %a{href: schools_path}
-            All
-          - Position.all.each do |pos|
-            = link_to "#{pos.abbreviation.upcase}", "/schools/position_needs_search?position=#{pos.name}"
-      %table.table.table-hover#schools
-        %thead
-          %tr
-            %th Name
-            %th Location
-            %th Needs
-        %tbody
-          - @schools.each do |school|
-            %tr
-              %td
-                = link_to "#{school.name.titleize}", school
-              %td
-                %p{syle: "color:black;"}
-                  = link_to "#{school.account.location.upcase}", "/schools/location_search?location=#{school.account.location}"
-              %td
-                - school.position_needs.each do |need|
-                  = need.position.abbreviation.upcase
-    .col-md-2
+.row
+  %br
+  %h3
+    %strong Find:
+    %a{href: schools_path}
+      All
+    - Position.all.each do |pos|
+      = link_to "#{pos.abbreviation.upcase}", "/schools/position_needs_search?position=#{pos.name}"
+%table.table.table-hover#schools
+  %thead
+    %tr
+      %th Name
+      %th Location
+      %th Sport
+      %th Needs
+  %tbody
+    - @schools.each do |school|
+      %tr.primary
+        %td= link_to "#{school.name.titleize}", school
+        %td
+          %p{syle: "color:black;"}
+          = link_to "#{school.account.location.upcase}", "/schools/location_search?location=#{school.account.location}"
+        %td
+          - school.sports.uniq.each do |sport|
+            %p= sport.name.titleize
+        %td
+          - school.position_needs.each do |need|
+            %p= need.position.name.titleize

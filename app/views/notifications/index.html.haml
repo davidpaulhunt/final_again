@@ -1,4 +1,5 @@
+%br
 - if @notifications.empty?
   %strong You don't have any notifications!
-%ul
-  = render @notifications
+%ul{style: "list-style:none;"}
+  = render @notifications.order(created_at: :asc)

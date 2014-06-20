@@ -1,24 +1,21 @@
-.col-md-2
-.col-md-8
-  = form_for @video do |f|
-    %fieldset
-      %input{:name => "video[player_id]", :type => "hidden", value: current_user.accountable_id}
-      %legend Create New
-      %label Title
-      %input{:name => "video[title]", :placeholder => "Give it a title...", :type => "text"}
-      %input#panda_video_id{:name => "video[panda_video_id]", :type => "hidden"}
-      %br
-      %br
-      .progress.progress-striped.progress-success.active
-        %span#progress-bar.bar
-      .btn-toolbar
-        %button#browse-files.btn.btn-default
-          Choose file
-        = link_to "Cancel", root_path, id: "cancel-button", class: "btn btn-default"
-      %br
-      #drop-file.well.well-large
-        Drop files here
-.col-md-2
+= form_for @video do |f|
+  %fieldset
+    %input{:name => "video[player_id]", :type => "hidden", value: current_user.accountable_id}
+    %legend Create New
+    %label Title
+    %input{:name => "video[title]", :placeholder => "Give it a title...", :type => "text"}
+    %input#panda_video_id{:name => "video[panda_video_id]", :type => "hidden"}
+    %br
+    %br
+    .progress.progress-striped.progress-success.active
+      %span#progress-bar.bar
+    .btn-toolbar
+      %button#browse-files.btn.btn-default
+        Choose file
+      = link_to "Cancel", root_path, id: "cancel-button", class: "btn btn-default"
+    %br
+    #drop-file.well.well-large
+      Drop files here
 
 :javascript
   $('#cancel-button').click(function(e){
