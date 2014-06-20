@@ -1,0 +1,17 @@
+%div.modal.fade#notifications-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "notifications-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#notifications-label
+          Your Notifications
+      %div.modal-body
+        - if @account.notifications.active.empty?
+          %strong You don't have any new notifications!
+          = link_to "Check out your old ones", account_notifications_path(@account)
+        %ul
+          = render @account.notifications.active.order(created_at: :asc)
+      %div.modal-footer
+        %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
+          Close

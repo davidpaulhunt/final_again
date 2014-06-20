@@ -4,6 +4,7 @@ class School < ActiveRecord::Base
   has_many :position_needs
   has_many :favorite_schools
   has_many :positions, through: :position_needs
+  has_many :sports, through: :positions
 
   accepts_nested_attributes_for :account
 

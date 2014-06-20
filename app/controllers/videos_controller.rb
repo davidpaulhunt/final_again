@@ -14,6 +14,7 @@ class VideosController < ApplicationController
   end
 
   def advanced
+    @video = Video.new
     render 'advanced'
   end
 

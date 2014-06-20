@@ -1,0 +1,167 @@
+/ = form_for @video do |f|
+/   %fieldset
+/     %input{:name => "video[player_id]", :type => "hidden", value: current_user.accountable_id}
+/     %legend Create New
+/     %label Title
+/     %input{:name => "video[title]", :placeholder => "Give it a title...", :type => "text"}
+/     %input#panda_video_id{:name => "video[panda_video_id]", :type => "hidden"}
+/     %br
+/     %br
+/     .progress.progress-striped.progress-success.active
+/       %span#progress-bar.bar
+/     .btn-toolbar
+/       %button#browse-files.btn.btn-default
+/         Choose file
+/       = link_to "Cancel", root_path, id: "cancel-button", class: "btn btn-default"
+/     %br
+/     #drop-file.well.well-large
+/       Drop files here
+
+.span8
+  = form_for @video do |f|
+    %fieldset
+      %input{:name => "video[player_id]", :type => "hidden", value: current_user.accountable_id}
+      %input{:name => "video[title]", :placeholder => "Give it a title...", :type => "text"}
+      %input#panda_video_id{:name => "video[panda_video_id]", :type => "hidden"}
+      %legend Upload a new video
+      %div
+        .row-fluid
+          .span10 Select a video file on your computer
+          .span2
+            #browse-files.btn.btn-primary.btn-default
+              %span Choose file
+      %table#upload-table.table.table-striped
+        %thead
+          %tr
+            %th Name
+            %th
+            %th
+            %th
+    %button#btn-upload.btn.btn-default{type: "button"} Upload
+
+:javascript
+  UploadTable = function(uploader) {
+    this.uploader = uploader;
+    this.holder_ = $("#upload-table");
+  }
+  
+  UploadTable.prototype.add = function(file){
+    var fileRow = new UploadFileRow(uploader, file);
+  
+    var dom = fileRow.draw()
+    dom.attr('id', "upload-"+file.id)
+  
+    this.holder_.append(dom);
+  
+    fileRow.attachEvents()
+  }
+  
+  UploadTable.prototype.remove = function(file){
+    this.holder_.find("#upload-"+file.id).remove();
+  }
+  
+  UploadFileRow = function(uploader, file) {
+    this.uploader_ = uploader
+    this.file_ = file
+  }
+  
+  UploadFileRow.prototype.draw = function(){
+    var self = this;
+    
+    this.html = $("<tr>")
+          .append($("<td>", {'class': 'td-filename'}).html(this.file_.name))
+          .append($("<td>", {'class': 'td-progress'})
+            .append($("<div>", {'class': 'progress'})
+              .append($("<div>", {'class': 'bar', 'id': "progress-" + this.file_.id}))))
+          .append($("<td>", {'class': 'td-filesize'}).html(this.file_.size))
+          .append($("<td>", {'class': 'td-action'})
+            .append($("<button>", {'type': 'button', 'class': 'btn btn-danger btn-cancel'}).text('Cancel')))
+  
+    return this.html;  
+  }
+  
+  UploadFileRow.prototype.attachEvents = function(){
+    var self = this;
+  
+    $(this.file_)
+      .on("start", function(event, progress){
+        self.html.find('.progress')
+          .addClass('progress-striped active');
+      })
+      .on("progress", function(event, progress){
+        self.html.find('.progress .bar')
+          .css({"width": progress + '%'})
+          .text(progress + "%");
+      })
+      .on("error", function(event, message){
+        self.html.find('.progress')
+          .addClass('progress-danger')
+          .removeClass('active')
+          .find('.bar')
+            .css({"width": '100%'})
+  
+        alert(message);
+  
+      })
+      .on("success", function(event, data){
+        self.html.find('.progress')
+          .addClass('progress-success')
+          .removeClass('active')
+          .find('.bar')
+            .css({"width": '100%'})
+  
+        self.html.find(".td-action")
+                  .html($("<a>", {
+                    'type': 'button',
+                    'class': 'btn btn-info',
+                    'target': "_blank",
+                    'href': data["play_url"]}).text('Play'))
+      })
+  
+    this.html.find(".btn-cancel").click(function(e){
+      self.uploader_.cancel(self.file_);
+      e.preventDefault();
+    })
+  }
+  
+  $("#btn-upload").click(function(e){
+    uploader.setEnabled(false);
+    uploader.start()
+    e.preventDefault();
+  })
+  
+  var uploader = panda.uploader.init({
+    'buttonId': 'browse-files',
+    'authorizeUrl': '/panda/authorize_upload_postprocess',
+    'autoStart': false,
+    'allowSelectMultipleFiles': true,
+    'onQueue': function(files) {
+      $.each(files, function(i, file) {
+        uploadTable.add(this);
+        uploader.setPayload(file, {'csrf': "#{form_authenticity_token}"});
+      })
+    },
+    'onStart': function(file, percent){
+      $(file).trigger('start');
+    },
+    'onProgress': function(file, percent) {
+      $(file).trigger("progress", percent)
+    },
+    'onSuccess': function(file, data) {
+      $(file).trigger('success', data);
+    },
+    'onComplete': function(file, data) {
+      uploader.setEnabled(true);
+    },
+    'onError': function(file, data) {
+      $(file).trigger('error', data);
+    },
+    'onCancel': function(file) {
+      uploadTable.remove(file)
+    },
+    'onPause': function(file) {
+      console.log('on paused', file);
+    }
+  });
+  
+  var uploadTable = new UploadTable(uploader);

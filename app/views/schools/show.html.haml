@@ -1,78 +1,72 @@
-.container
-  %br
-  %br
-  .row
-    .col-md-2
-    .col-md-8
-      .row
-        .col-md-10
-          %h1= @school.name.titleize
-        .col-md-2
-          - if @school.favorited(current_user.accountable)
-            %button.btn.btn-sm.btn-default.disabled
-              Favorited
-          - else
-            %a.navbar-right{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-favorite_school-modal", id: "new-favorite_school"}
-              %button.btn.btn-sm.btn-default
-                Favorite
-      %hr
-      .row
-        .col-md-6
-          .panel.panel-default
-            .panel-body
-              .row
-                / /col
-                .col-xs-12.col-sm-4.text-center
-                  - if @school.account.avatar.present?
-                    %img.center-block.img-responsive{alt: "", src: @school.account.avatar.url}
-                .col-xs-18.col-sm-6
-              .row
-                .col-xs-12.col-sm-4
-                  %h2
-                    %strong= @school.position_needs.count
+%br
+.row
+  .col-md-10
+    %h1= @school.name.titleize
+  .col-md-2
+    - if @school.favorited(current_user.accountable)
+      %button.btn.btn-sm.btn-default.disabled
+        Favorited
+    - else
+      %a.navbar-right{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-favorite_school-modal", id: "new-favorite_school"}
+        %button.btn.btn-sm.btn-default
+          Favorite
+%hr
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-body
+        .row
+          / /col
+          .col-xs-12.col-sm-4.text-center
+            - if @school.account.avatar.present?
+              %img.center-block.img-responsive{alt: "", src: @school.account.avatar.url}
+          .col-xs-18.col-sm-6
+        .row
+          .col-xs-12.col-sm-4
+            %h2
+              %strong= @school.position_needs.count
+            %p
+              %small Needs
+          .col-xs-12.col-sm-4
+            %h2
+              %strong= @school.favorite_schools.count
+            %p
+              %small Favorited
+          .col-xs-12.col-sm-4
+            %h2
+              %strong= @school.account.location.upcase
+            %p
+              %small Location
+        .row
+          .col-xs-12.col-sm-8
+            %p
+              %strong Needs:
+              - @school.position_needs.each do |need|
+                %span.label.label-info.tags= need.position.abbreviation.upcase
+  .col-md-1
+  .col-md-5
+    .panel.panel-default#interested-players
+      .panel-body
+        %legend
+          %small Interested Players
+        %table.table.table-striped
+          %thead
+            %th Position
+            %th Player
+          %tbody
+            - @school.favorite_schools.each do |favorite|
+              %tr
+                %td
                   %p
-                    %small Needs
-                .col-xs-12.col-sm-4
-                  %h2
-                    %strong= @school.favorite_schools.count
-                  %p
-                    %small Favorited
-                .col-xs-12.col-sm-4
-                  %h2
-                    %strong= @school.account.location.upcase
-                  %p
-                    %small Location
-              .row
-                .col-xs-12.col-sm-8
-                  %p
-                    %strong Needs:
-                    - @school.position_needs.each do |need|
-                      %span.label.label-info.tags= need.position.abbreviation.upcase
-        .col-md-1
-        .col-md-5
-          .panel.panel-default#interested-players
-            .panel-body
-              %legend
-                %small Interested Players
-              %table.table.table-striped
-                %thead
-                  %th Position
-                  %th Player
-                %tbody
-                  - @school.favorite_schools.each do |favorite|
-                    %tr
-                      %td
-                        %p
-                          - favorite.player.positions.each do |pos|
-                            = pos.abbreviation.upcase
-                      %td= favorite.player.first_name
-      .row
-        .col-md-12
-          .panel.panel-default#school-description
-            .panel-body
-              %legend= "About #{@school.name.titleize}"
-              %p= @school.account.about
-    .col-md-2
+                    - favorite.player.positions.each do |pos|
+                      = pos.abbreviation.upcase
+                %td= favorite.player.first_name
+.row
+  .col-md-12
+    .panel.panel-default#school-description
+      .panel-body
+        %legend= "About #{@school.name.titleize}"
+        %p= @school.account.about
 
 %div.modal.fade#new-favorite_school-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-favorite_school-label", "aria-hidden" => "true"}
   %div.modal-dialog

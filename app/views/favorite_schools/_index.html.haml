@@ -1,0 +1,18 @@
+%div.modal.fade#favorite_schools-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "favorite_schools-label", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h4.modal-title#favorite_schools-label
+          Favorite Schools
+      %div.modal-body
+        %table.table.table-striped
+          %thead
+            %th School
+            %th Interested Players
+          %tbody
+            - player.favorite_schools.each do |favorite|
+              %tr
+                %td= favorite.school.name
+                %td= favorite.school.favorite_schools.count

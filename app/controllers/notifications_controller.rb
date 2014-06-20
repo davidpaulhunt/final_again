@@ -11,7 +11,7 @@ class NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = current_user.notifications.active
+    @notifications = current_user.notifications
   end
 
   def show

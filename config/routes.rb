@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   post "/panda/authorize_upload", :to => "panda#authorize_upload"
   post "/panda/authorize_upload_postprocess", :to => "panda#authorize_upload_postprocess"
   get "/new_video", :to => "videos#simple"
+  get "/new_video/advanced", :to => "videos#advanced"
   post "/videos/postprocess", :to => "videos#postprocess"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,83 +1,47 @@
-.container
-  %br
-  %br
-  .row
-    .col-md-2
-    .col-md-8
-      %legend Home
-      .col-md-6
-        .panel.panel-default
-          .panel-body
-            .row
-              .col-xs-12.col-sm-8
-                %h2= "#{school.name.titleize}"
-                %p
-                  Location
-                  %strong= school.account.location.upcase
-                %p
-                  %strong Needs:
-                  - school.position_needs.each do |need|
-                    %a.pos-pop{rel: "popover", "data-html"=>"true","data-container"=>"body", "data-content"=>"#{link_to 'Find Players', players_path, 'class'=>'btn btn-default btn-xs'} #{link_to "Delete Need", need, 'method'=>'delete', 'class'=>'btn btn-default btn-xs'}", "data-placement"=>"left","data-toggle"=>"popover", id: "pos-pop-#{need.id}"}
-                      %span.label.label-info.tags= need.position.abbreviation.upcase
+%br
+%legend Home
+.col-md-6
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-12.col-sm-8
+          %h2= "#{school.name.titleize}"
+          %p
+            Location
+            %strong= school.account.location.upcase
+          %p
+            %strong Needs:
+            - school.position_needs.each do |need|
+              %a.pos-pop{rel: "popover", "data-html"=>"true","data-container"=>"body", "data-content"=>"#{link_to 'Find Players', players_path, 'class'=>'btn btn-default btn-xs'} #{link_to "Delete Need", need, 'method'=>'delete', 'class'=>'btn btn-default btn-xs'}", "data-placement"=>"left","data-toggle"=>"popover", id: "pos-pop-#{need.id}"}
+                %span.label.label-info.tags= need.position.abbreviation.upcase
+        .col-xs-12.col-sm-4.text-center
+          %img.center-block.img-circle.img-responsive{alt: "", src: @account.avatar.url}
+      .row
+        .col-xs-12.col-sm-4
+          %h2
+            %strong= @account.notifications.active.count
+          %p
+            %small Notifications
+        .col-xs-12.col-sm-4
+          %h2
+            %strong= school.position_needs.count
+          %p
+            %small Needs
+        .col-xs-12.col-sm-4
+          %h2
+            %strong 0
+          %p
+            %small New Messages
+      .row
+        .col-xs-18.col-sm-6
+          %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-position_need-modal", id: "new-position_need"}
+            %button.btn.btn-default.btn-block
+              New Need
+        .col-xs-18.col-sm-6
+          %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#notifications-modal", id: "notifications"}
+            %button.btn.btn-default.btn-block
+              Notifications
 
-              / /col
-              .col-xs-12.col-sm-4.text-center
-                %img.center-block.img-circle.img-responsive{alt: "", src: @account.avatar.url}
-              / /col
-            .row
-              .col-xs-12.col-sm-4
-                %h2
-                  %strong= @account.notifications.active.count
-                %p
-                  %small Notifications
-              .col-xs-12.col-sm-4
-                %h2
-                  %strong= school.position_needs.count
-                %p
-                  %small Needs
-              .col-xs-12.col-sm-4
-                %h2
-                  %strong 0
-                %p
-                  %small New Messages
-            .row
-              / /col
-              .col-xs-18.col-sm-6
-                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#new-position_need-modal", id: "new-position_need"}
-                  %button.btn.btn-default.btn-block
-                    New Need
-              / /col
-              .col-xs-18.col-sm-6
-                %a{href: "#", style: "color:#029ece;", "data-toggle" => "modal", "data-target" => "#notifications-modal", id: "notifications"}
-                  %button.btn.btn-default.btn-block
-                    Notifications
-    .col-md-2
+= render "position_needs/new", account: @account
 
-%div.modal.fade#new-position_need-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "new-position_need-label", "aria-hidden" => "true"}
-  %div.modal-dialog
-    %div.modal-content
-      %div.modal-header
-        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
-          &times;
-        %h4.modal-title#new-position_need-label
-          New Need
-      %div.modal-body
-        = form_for PositionNeed.new do |f|
-          = render "position_needs/form", f:f
-
-%div.modal.fade#notifications-modal{"tabindex" => "-1", role: "dialog", "aria-labelledby" => "notifications-label", "aria-hidden" => "true"}
-  %div.modal-dialog
-    %div.modal-content
-      %div.modal-header
-        %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
-          &times;
-        %h4.modal-title#notifications-label
-          Your Notifications
-      %div.modal-body
-        - if @account.notifications.empty?
-          %strong You don't have any notifications!
-        %ul
-          = render @account.notifications
-      %div.modal-footer
-        %button.btn.btn-default{ type: "button", "data-dismiss" => "modal"}
-          Close
+= render "notifications/account_notifications", account: @account
